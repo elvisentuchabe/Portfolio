@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON — Objetos de Diseño</title>
+
+  <!-- Google Fonts: Inter + Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVBAR
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- Logo -->
+      <a href="#" class="header__logo" aria-label="Ir al inicio">
+        <span class="logo-serif">MAISON</span>
+        <span class="logo-sub">Objects of Design</span>
+      </a>
+
+      <!-- Navegación principal -->
+      <nav class="header__nav" aria-label="Navegación principal">
+        <a href="#coleccion" class="nav-link">Colección</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Acciones del header -->
+      <div class="header__actions">
+        <!-- Botón del carrito -->
+        <button
+          class="cart-trigger"
+          id="cartTrigger"
+          aria-label="Abrir carrito"
+          aria-expanded="false"
+          aria-controls="cartSidebar"
+        >
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <!-- Contador de ítems -->
+          <span class="cart-badge" id="cartBadge" aria-live="polite" aria-label="Artículos en el carrito">0</span>
+        </button>
+
+        <!-- Botón hamburguesa (mobile) -->
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú mobile -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#coleccion" class="mobile-nav__link">Colección</a>
+      <a href="#nosotros" class="mobile-nav__link">Nosotros</a>
+      <a href="#contacto" class="mobile-nav__link">Contacto</a>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero__bg-grid" aria-hidden="true"></div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow">Nueva Colección · Otoño 2026</p>
+      <h1 class="hero__title" id="heroTitle">
+        El Arte de<br />
+        <em>Vivir Bien</em>
+      </h1>
+      <p class="hero__description">
+        Objetos de diseño seleccionados para quienes valoran la forma tanto
+        como la función. Cada pieza, una declaración de intenciones.
+      </p>
+      <div class="hero__cta-group">
+        <a href="#coleccion" class="btn btn--primary">Explorar Colección</a>
+        <a href="#nosotros" class="btn btn--ghost">Nuestra Historia</a>
+      </div>
+    </div>
+    <!-- Decoración geométrica -->
+    <div class="hero__deco" aria-hidden="true">
+      <div class="deco-circle deco-circle--1"></div>
+      <div class="deco-circle deco-circle--2"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MARQUEE / TRUST BAR
+  ============================================================ -->
+  <div class="trust-bar" aria-hidden="true">
+    <div class="trust-bar__track">
+      <span>Envío gratuito +150€</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Devoluciones 30 días</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Pago 100% seguro</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Diseño exclusivo</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Envío gratuito +150€</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Devoluciones 30 días</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Pago 100% seguro</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>Diseño exclusivo</span>
+      <span class="separator" aria-hidden="true">·</span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       FEATURED — BANNER EDITORIAL
+  ============================================================ -->
+  <section class="editorial container" aria-label="Destacado editorial">
+    <div class="editorial__text">
+      <span class="editorial__label">Selección del Editor</span>
+      <h2 class="editorial__title">
+        Materialidad<br />e <em>intención</em>
+      </h2>
+      <p class="editorial__body">
+        Cada objeto de nuestra colección nace de una colaboración entre
+        artesanos de renombre y diseñadores contemporáneos. La excelencia
+        no es un accidente, es un proceso.
+      </p>
+      <a href="#coleccion" class="btn btn--primary btn--sm">Ver todo</a>
+    </div>
+    <div class="editorial__image" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80&auto=format&fit=crop"
+        alt="Interior minimalista con objetos de diseño"
+        loading="lazy"
+        width="800"
+        height="600"
+      />
+      <div class="editorial__image-tag">Diseño · Funcionalidad</div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CATÁLOGO DE PRODUCTOS
+  ============================================================ -->
+  <section class="catalog" id="coleccion" aria-labelledby="catalogTitle">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-label">Colección</span>
+        <h2 class="section-title" id="catalogTitle">Objetos Seleccionados</h2>
+        <p class="section-desc">
+          Una curaduría de piezas únicas para espacios con personalidad.
+        </p>
+      </header>
+
+      <!-- Filtros de categoría -->
+      <div class="filter-bar" role="group" aria-label="Filtrar por categoría">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="reloj">Relojes</button>
+        <button class="filter-btn" data-filter="ceramica">Cerámica</button>
+        <button class="filter-btn" data-filter="cosmetica">Cosmética</button>
+        <button class="filter-btn" data-filter="iluminacion">Iluminación</button>
+      </div>
+
+      <!-- Grid de productos (generado por JS) -->
+      <div class="products-grid" id="productsGrid" role="list" aria-label="Catálogo de productos">
+        <!-- Los productos se inyectan vía JavaScript -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECCIÓN NOSOTROS
+  ============================================================ -->
+  <section class="about" id="nosotros" aria-labelledby="aboutTitle">
+    <div class="container about__inner">
+      <div class="about__image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=700&q=80&auto=format&fit=crop"
+          alt="Taller de diseño artesanal"
+          loading="lazy"
+          width="700"
+          height="500"
+        />
+      </div>
+      <div class="about__content">
+        <span class="section-label">Nosotros</span>
+        <h2 class="section-title" id="aboutTitle">Una marca con<br/><em>propósito</em></h2>
+        <p>
+          MAISON nació en 2018 de la convicción de que los objetos cotidianos
+          pueden ser extraordinarios. Trabajamos con talleres independientes de
+          toda Europa para traerte piezas que envejecen con gracia y cuentan
+          una historia.
+        </p>
+        <ul class="about__stats" aria-label="Estadísticas de la marca">
+          <li>
+            <strong class="stat-num">+2.400</strong>
+            <span class="stat-label">Clientes felices</span>
+          </li>
+          <li>
+            <strong class="stat-num">18</strong>
+            <span class="stat-label">Talleres asociados</span>
+          </li>
+          <li>
+            <strong class="stat-num">6</strong>
+            <span class="stat-label">Países</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER / CONTACTO
+  ============================================================ -->
+  <footer class="footer" id="contacto">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo-serif">MAISON</span>
+        <p>Objetos de Diseño.<br />Barcelona, España.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navegación secundaria">
+        <h3 class="footer__nav-title">Tienda</h3>
+        <a href="#coleccion">Colección</a>
+        <a href="#">Novedades</a>
+        <a href="#">Outlet</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Información">
+        <h3 class="footer__nav-title">Info</h3>
+        <a href="#">Envíos</a>
+        <a href="#">Devoluciones</a>
+        <a href="#">Política de privacidad</a>
+      </nav>
+      <div class="footer__newsletter">
+        <h3 class="footer__nav-title">Newsletter</h3>
+        <p>Sé el primero en conocer nuestras nuevas piezas.</p>
+        <form class="newsletter-form" novalidate>
+          <label for="newsletterEmail" class="sr-only">Tu correo electrónico</label>
+          <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="tu@correo.com"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" class="btn btn--primary btn--sm">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© 2026 MAISON. Todos los derechos reservados.</p>
+      <p>Hecho con cuidado · Barcelona</p>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       CARRITO LATERAL (SLIDE-OUT SIDEBAR)
+  ============================================================ -->
+  <aside
+    class="cart-sidebar"
+    id="cartSidebar"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Carrito de compras"
+    aria-hidden="true"
+  >
+    <div class="cart-sidebar__header">
+      <h2 class="cart-sidebar__title">Tu Carrito</h2>
+      <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lista de items del carrito -->
+    <div class="cart-sidebar__body" id="cartItems">
+      <!-- Inyectado por JS -->
+    </div>
+
+    <!-- Footer con total y acción de pago -->
+    <div class="cart-sidebar__footer" id="cartFooter">
+      <div class="cart-summary">
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">€0.00</span>
+        </div>
+        <div class="cart-summary__row">
+          <span>Envío</span>
+          <span id="cartShipping">Gratuito</span>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <strong>Total</strong>
+          <strong id="cartTotal">€0.00</strong>
+        </div>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">
+        Proceder al Pago
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Estado vacío del carrito -->
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <p>Tu carrito está vacío</p>
+      <span>Explora nuestra colección y añade algo especial.</span>
+    </div>
+  </aside>
+
+  <!-- Overlay oscuro para el carrito / modales -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+
+  <!-- ============================================================
+       MODAL DE CHECKOUT
+  ============================================================ -->
+  <div
+    class="modal"
+    id="checkoutModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="checkoutModalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal__box" role="document">
+
+      <!-- Vista: Formulario de pago -->
+      <div class="modal__view" id="checkoutFormView">
+        <div class="modal__header">
+          <h2 id="checkoutModalTitle">Finalizar Compra</h2>
+          <button class="modal__close" id="modalClose" aria-label="Cerrar ventana de pago">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" novalidate>
+
+          <!-- Datos personales -->
+          <fieldset class="form-section">
+            <legend class="form-section__title">Información de Envío</legend>
+            <div class="form-row form-row--two">
+              <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Carlos" autocomplete="given-name" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Apellidos</label>
+                <input type="text" id="lastName" name="lastName" placeholder="García" autocomplete="family-name" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="carlos@ejemplo.com" autocomplete="email" required />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="address">Dirección</label>
+              <input type="text" id="address" name="address" placeholder="Calle Gran Vía, 42, 3º B" autocomplete="street-address" required />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-row form-row--two">
+              <div class="form-group">
+                <label for="city">Ciudad</label>
+                <input type="text" id="city" name="city" placeholder="Barcelona" autocomplete="address-level2" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="zip">Código Postal</label>
+                <input type="text" id="zip" name="zip" placeholder="08001" autocomplete="postal-code" required />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Datos de tarjeta -->
+          <fieldset class="form-section">
+            <legend class="form-section__title">
+              Detalles de Pago
+              <span class="secure-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Seguro
+              </span>
+            </legend>
+            <div class="form-group">
+              <label for="cardName">Titular de la tarjeta</label>
+              <input type="text" id="cardName" name="cardName" placeholder="CARLOS GARCÍA" autocomplete="cc-name" required />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="cardNumber">Número de tarjeta</label>
+              <div class="input-icon-wrap">
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number" required inputmode="numeric" />
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+              </div>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-row form-row--two">
+              <div class="form-group">
+                <label for="cardExpiry">Caducidad</label>
+                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp" required inputmode="numeric" />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="cardCvv">CVV</label>
+                <input type="text" id="cardCvv" name="cardCvv" placeholder="123" maxlength="4" autocomplete="cc-csc" required inputmode="numeric" />
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Resumen del pedido en el modal -->
+          <div class="checkout-total">
+            <span>Total del pedido</span>
+            <strong id="modalTotal">€0.00</strong>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full" id="payBtn">
+            Confirmar y Pagar
+          </button>
+        </form>
+      </div>
+
+      <!-- Vista: Loader / Procesando -->
+      <div class="modal__view modal__view--hidden" id="processingView" aria-live="assertive">
+        <div class="loader-wrap">
+          <div class="spinner" aria-label="Procesando pago..."></div>
+          <p class="loader-text">Procesando tu pago…</p>
+          <p class="loader-sub">Por favor, no cierres esta ventana.</p>
+        </div>
+      </div>
+
+      <!-- Vista: Pago exitoso -->
+      <div class="modal__view modal__view--hidden" id="successView" aria-live="polite">
+        <div class="success-wrap">
+          <div class="success-icon" aria-hidden="true">
+            <svg viewBox="0 0 52 52" fill="none" aria-hidden="true">
+              <circle class="success-icon__circle" cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path class="success-icon__check" d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="success-title">¡Pedido Confirmado!</h2>
+          <p class="success-body">
+            Gracias por tu compra. Recibirás un email de confirmación en breve.
+          </p>
+          <div class="order-number-box">
+            <span class="order-label">Número de pedido</span>
+            <strong class="order-number" id="orderNumber">#MSN-000000</strong>
+          </div>
+          <button class="btn btn--primary" id="successCloseBtn">
+            Seguir comprando
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /.modal__box -->
+  </div><!-- /#checkoutModal -->
+
+
+  <!-- ============================================================
+       TOAST / NOTIFICACIÓN
+  ============================================================ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

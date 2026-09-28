@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Clinic | Medicina Estética Avanzada, Dermatología y Longevidad</title>
+  <meta name="description" content="AURA Clinic Madrid. Centro de referencia en medicina estética de alta precisión, dermatología avanzada y longevidad. Calle Serrano 45, Barrio de Salamanca.">
+  
+  <!-- Favicon Oficial AURA Clinic (Quiet Luxury Monogram Vectorial) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <meta name="theme-color" content="#191918">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            aura: {
+              bg: '#FAF8F5',
+              cream: '#F4EFEB',
+              sand: '#EAE3D9',
+              border: '#E1D8CC',
+              charcoal: '#191918',
+              dark: '#111110',
+              muted: '#706B63',
+              subtle: '#9E978C',
+              gold: '#C5A880',
+              goldHover: '#B3946A',
+              goldLight: '#F7F3EC',
+              bronze: '#9F7C53',
+              sage: '#566052',
+              card: '#FFFFFF'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: {
+            'widest-plus': '0.22em',
+            'ultra': '0.3em'
+          },
+          boxShadow: {
+            'aura': '0 20px 40px -15px rgba(25, 25, 24, 0.05)',
+            'aura-hover': '0 25px 50px -12px rgba(197, 168, 128, 0.15)',
+            'modal': '0 30px 60px -20px rgba(17, 17, 16, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D9D0C3;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C5A880;
+    }
+    
+    /* Before/After Slider specific styling */
+    .ba-slider-container {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      overflow: hidden;
+    }
+    .ba-slider-before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      will-change: width;
+    }
+    .ba-slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background-color: #C5A880;
+      cursor: ew-resize;
+      z-index: 20;
+      transform: translateX(-50%);
+    }
+    .ba-handle-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background-color: #191918;
+      border: 2px solid #C5A880;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      color: #FAF8F5;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .ba-handle-button:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+      background-color: #C5A880;
+      color: #191918;
+    }
+
+    /* Modal Backdrop Transitions */
+    .modal-backdrop {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Subtle luxury image zoom */
+    .image-zoom-container {
+      overflow: hidden;
+    }
+    .image-zoom-container img {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .image-zoom-container:hover img {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body class="bg-aura-bg text-aura-charcoal font-sans antialiased selection:bg-aura-gold selection:text-aura-charcoal">
+
+  <!-- ============================================================ -->
+  <!-- 1. TOP UTILITY BAR (Calle Serrano, Horarios, Registro Sanitario) -->
+  <!-- ============================================================ -->
+  <div class="bg-aura-dark text-aura-cream text-xs border-b border-aura-dark py-2.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <!-- Ubicación y Horario -->
+      <div class="flex items-center flex-wrap justify-center gap-4 text-aura-cream/80">
+        <span class="flex items-center gap-1.5">
+          <!-- SVG Location Pin -->
+          <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          Calle Serrano 45, Barrio de Salamanca, Madrid
+        </span>
+        <span class="hidden sm:inline text-aura-cream/30">|</span>
+        <span class="flex items-center gap-1.5">
+          <!-- SVG Clock -->
+          <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Lunes a Viernes: 09:30 - 20:30 h
+        </span>
+      </div>
+
+      <!-- Registro Sanitario y Concierge Directo -->
+      <div class="flex items-center gap-5 text-aura-cream/80">
+        <span class="hidden lg:flex items-center gap-1.5 font-medium tracking-wider text-[11px] text-aura-sand">
+          <!-- SVG Shield Check -->
+          <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+          </svg>
+          REGISTRO SANITARIO CS-10948/CAM
+        </span>
+        <a href="tel:+34910234567" class="flex items-center gap-1.5 text-aura-cream hover:text-aura-gold transition-colors font-medium">
+          <!-- SVG Phone -->
+          <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          +34 910 234 567
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 2. STICKY MAIN HEADER & LUXURY NAVIGATION -->
+  <!-- ============================================================ -->
+  <header id="main-header" class="sticky top-0 z-40 bg-aura-bg/95 backdrop-blur-md border-b border-aura-border/70 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+      
+      <!-- Brand Logo Minimalista -->
+      <a href="#" class="group flex items-center gap-3.5 focus:outline-none">
+        <!-- SVG Monogram Crest -->
+        <div class="w-10 h-10 border border-aura-gold flex items-center justify-center relative bg-aura-dark text-aura-gold group-hover:border-aura-charcoal transition-colors">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <polygon points="12,2 22,12 12,22 2,12" stroke="currentColor" stroke-dasharray="1 1"/>
+            <path d="M12 6L16 18H8L12 6Z" fill="none" stroke="currentColor"/>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-serif text-2xl tracking-widest-plus text-aura-charcoal font-medium uppercase leading-tight">AURA</span>
+          <span class="block text-[9px] tracking-ultra text-aura-muted uppercase font-sans -mt-0.5">Clínica Médica • Madrid</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-widest uppercase font-medium text-aura-charcoal/80">
+        <a href="#filosofia" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Filosofía</a>
+        <a href="#tratamientos" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Tratamientos</a>
+        <a href="#casos" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Casos Clínicos</a>
+        <a href="#diagnostico" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Diagnóstico</a>
+        <a href="#equipo" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Equipo Médico</a>
+        <a href="#instalaciones" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Espacio VIP</a>
+      </nav>
+
+      <!-- Right Action CTA & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <!-- Idioma Selector -->
+        <div class="hidden sm:flex items-center text-xs tracking-wider text-aura-muted border border-aura-border px-2.5 py-1">
+          <span class="text-aura-charcoal font-semibold">ES</span>
+          <span class="mx-1 text-aura-border">/</span>
+          <button onclick="toggleLanguageNotice()" class="hover:text-aura-gold transition-colors">EN</button>
+        </div>
+
+        <!-- Botón Solicitar Cita -->
+        <a href="#reserva" class="hidden sm:inline-flex items-center gap-2 bg-aura-charcoal text-aura-bg hover:bg-aura-gold hover:text-aura-charcoal text-xs tracking-widest-plus uppercase px-5 py-3 transition-all duration-300 font-medium border border-transparent shadow-sm">
+          <!-- SVG Calendar -->
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          <span>Solicitar Cita</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-aura-charcoal hover:text-aura-gold focus:outline-none" aria-label="Abrir menú de navegación">
+          <!-- SVG Hamburger -->
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-aura-bg border-b border-aura-border px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-sm tracking-widest uppercase font-medium">
+        <a href="#filosofia" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Filosofía Médica</a>
+        <a href="#tratamientos" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Tratamientos Especializados</a>
+        <a href="#casos" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Casos Clínicos Antes / Después</a>
+        <a href="#diagnostico" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Test Diagnóstico Rápido</a>
+        <a href="#equipo" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Cuadro Médico</a>
+        <a href="#instalaciones" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Espacio & Acceso Discreto</a>
+        <div class="pt-4 border-t border-aura-border flex flex-col gap-3">
+          <a href="#reserva" class="mobile-nav-link text-center w-full bg-aura-charcoal text-aura-cream py-3 tracking-widest uppercase text-xs">Agendar Consulta</a>
+          <a href="https://wa.me/34910234567" target="_blank" rel="noopener noreferrer" class="text-center w-full border border-aura-charcoal py-3 tracking-widest uppercase text-xs flex items-center justify-center gap-2">
+            <!-- SVG WhatsApp -->
+            <svg class="w-4 h-4 text-aura-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 10-9-9c0 1.5.4 2.9 1.1 4.2L3 21l4.9-1.3c1.3.8 2.7 1.3 4.1 1.3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 9.5c.3-.5.7-.6 1-.6s.6.3.8.7l.7 1.6c.2.4.1.8-.2 1.1l-.5.5c.4.8 1.1 1.5 1.9 1.9l.5-.5c.3-.3.7-.4 1.1-.2l1.6.7c.4.2.7.5.7.8s-.1.7-.6 1c-.5.4-1.2.6-1.8.5-2.2-.2-4.3-1.6-5.6-3.4-1-1.4-1.3-2.9-1.2-4.1.1-.7.4-1.3.9-1.5z" />
+            </svg>
+            Concierge WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- 3. HERO SECTION (Quiet Luxury & Prestigio Médico) -->
+  <!-- ============================================================ -->
+  <section class="relative pt-12 pb-20 md:py-24 overflow-hidden border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Editorial Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Micro-insignia superior -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 border border-aura-gold/40 bg-aura-goldLight/70 text-aura-charcoal text-xs tracking-widest uppercase font-medium">
+            <!-- SVG Diamond -->
+            <svg class="w-3.5 h-3.5 text-aura-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 2 12 12 22 22 12 12 2" />
+            </svg>
+            <span>Medicina de Precisión • Armonización Natural • Discreción</span>
+          </div>
+
+          <!-- Titular Principal Aspiracional -->
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-aura-charcoal leading-[1.12] font-normal">
+            La ciencia del <span class="italic font-normal text-aura-bronze">rejuvenecimiento invisible</span> y la belleza armónica.
+          </h1>
+
+          <!-- Párrafo Subtitular -->
+          <p class="text-aura-muted text-base sm:text-lg leading-relaxed font-light max-w-2xl">
+            En AURA Clinic combinamos el criterio médico dermatológico más riguroso, ecografía de seguridad en tiempo real y aparatología aprobada por la FDA. Protocolos personalizados en el Barrio de Salamanca diseñados para sublimar la fisonomía sin distorsionar su identidad.
+          </p>
+
+          <!-- CTAs Principales -->
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#reserva" class="inline-flex items-center justify-center gap-3 bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal px-8 py-4 text-xs tracking-widest-plus uppercase font-semibold transition-all duration-300 shadow-aura">
+              <!-- SVG Calendar -->
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              <span>Agendar Primera Consulta</span>
+            </a>
+
+            <a href="#casos" class="inline-flex items-center justify-center gap-3 border border-aura-charcoal text-aura-charcoal hover:bg-aura-sand/40 px-7 py-4 text-xs tracking-widest-plus uppercase font-medium transition-all duration-300">
+              <!-- SVG Eye / Case Study -->
+              <svg class="w-4 h-4 text-aura-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Ver Casos y Resultados</span>
+            </a>
+          </div>
+
+          <!-- Micro-insignias vectoriales de confianza médica -->
+          <div class="pt-8 border-t border-aura-border grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="flex items-start gap-2.5">
+              <!-- SVG Stethoscope / College -->
+              <svg class="w-5 h-5 text-aura-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Médicos Colegiados</span>
+                <span class="block text-[11px] text-aura-muted">SEME & SECPRE España</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <!-- SVG Technology Sparkle -->
+              <svg class="w-5 h-5 text-aura-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+              </svg>
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Tecnología FDA</span>
+                <span class="block text-[11px] text-aura-muted">Aparatología Médica Clase III</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5 col-span-2 sm:col-span-1">
+              <!-- SVG Lock / Discretion -->
+              <svg class="w-5 h-5 text-aura-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Privacidad VIP</span>
+                <span class="block text-[11px] text-aura-muted">Acceso directo y discreto</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Art & Clinical Aura Badge -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <!-- Decorative Gold Framing -->
+            <div class="absolute -top-4 -left-4 w-full h-full border border-aura-gold/50 pointer-events-none hidden sm:block"></div>
+            
+            <!-- Main Imagery -->
+            <div class="relative bg-aura-cream shadow-2xl overflow-hidden aspect-[4/5] border border-aura-border">
+              <img 
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80" 
+                alt="Retrato de armonización y medicina estética de alta precisión en AURA Clinic" 
+                class="w-full h-full object-cover object-center filter saturate-[0.95]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-aura-dark/70 via-transparent to-transparent"></div>
+              
+              <!-- Floating Clinical Card Bottom -->
+              <div class="absolute bottom-6 left-6 right-6 bg-aura-bg/95 backdrop-blur-md p-5 border border-aura-gold/40 shadow-lg">
+                <div class="flex items-center justify-between border-b border-aura-border pb-3 mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-700 animate-pulse"></span>
+                    <span class="text-[10px] tracking-widest-plus uppercase font-bold text-aura-charcoal">Consulta de Valoración</span>
+                  </div>
+                  <span class="text-[11px] text-aura-gold font-serif italic">Ecografía Cutánea Incluida</span>
+                </div>
+                <p class="text-xs text-aura-muted leading-relaxed font-light">
+                  Mapeo anatómico vascular en 3D antes de cada tratamiento para garantizar una precisión milimétrica y seguridad total.
+                </p>
+              </div>
+            </div>
+
+            <!-- Floating Top Right Badge -->
+            <div class="absolute -top-5 -right-5 bg-aura-dark text-aura-cream p-4 border border-aura-gold/60 shadow-xl hidden sm:flex flex-col items-center justify-center text-center w-28 h-28">
+              <span class="font-serif text-3xl font-normal text-aura-gold leading-none">14</span>
+              <span class="text-[9px] uppercase tracking-widest text-aura-sand mt-1">Años de</span>
+              <span class="text-[8px] uppercase tracking-wider text-aura-muted">Excelencia</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 4. FILOSOFÍA MÉDICA (3 Pilares del Enfoque AURA) -->
+  <!-- ============================================================ -->
+  <section id="filosofia" class="py-20 bg-aura-cream/50 border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">El Enfoque AURA</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-aura-charcoal font-normal">
+          Medicina de alta costura: rigor científico, seguridad y armonía sin artificios.
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+        <p class="text-aura-muted text-sm sm:text-base font-light leading-relaxed">
+          Rechazamos las tendencias efímeras y los rostros estandarizados. Nuestra práctica médica se asienta en tres compromisos innegociables para ofrecer resultados duraderos y elegantes.
+        </p>
+      </div>
+
+      <!-- 3 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Pilar 1 -->
+        <div class="bg-aura-bg p-8 border border-aura-border transition-all duration-300 hover:border-aura-gold hover:shadow-aura group">
+          <div class="w-12 h-12 bg-aura-cream border border-aura-border flex items-center justify-center mb-6 text-aura-gold group-hover:border-aura-gold transition-colors">
+            <!-- SVG Scan / Ultrasound -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+            </svg>
+          </div>
+          <span class="text-xs tracking-widest text-aura-gold font-medium uppercase block mb-2">01. Seguridad Anatómica</span>
+          <h3 class="font-serif text-2xl text-aura-charcoal font-normal mb-3">Diagnóstico con Ecografía Cutánea</h3>
+          <p class="text-aura-muted text-xs sm:text-sm leading-relaxed font-light">
+            Visualizamos las estructuras vasculares y planos fasciales en tiempo real. Cada infiltración se realiza bajo guía ecográfica para anular el riesgo de oclusión y garantizar una colocación milimétrica del producto.
+          </p>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="bg-aura-bg p-8 border border-aura-border transition-all duration-300 hover:border-aura-gold hover:shadow-aura group">
+          <div class="w-12 h-12 bg-aura-cream border border-aura-border flex items-center justify-center mb-6 text-aura-gold group-hover:border-aura-gold transition-colors">
+            <!-- SVG Balance / Harmony -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
+            </svg>
+          </div>
+          <span class="text-xs tracking-widest text-aura-gold font-medium uppercase block mb-2">02. Quiet Luxury</span>
+          <h3 class="font-serif text-2xl text-aura-charcoal font-normal mb-3">Rejuvenecimiento Indetectable</h3>
+          <p class="text-aura-muted text-xs sm:text-sm leading-relaxed font-light">
+            El mejor tratamiento médico-estético es aquel que nadie puede señalar con el dedo. Potenciamos la firmeza dérmica y la luz natural sin generar rostros hinchados, labios sobrecorregidos ni expresiones congeladas.
+          </p>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="bg-aura-bg p-8 border border-aura-border transition-all duration-300 hover:border-aura-gold hover:shadow-aura group">
+          <div class="w-12 h-12 bg-aura-cream border border-aura-border flex items-center justify-center mb-6 text-aura-gold group-hover:border-aura-gold transition-colors">
+            <!-- SVG Cellular / Molecule -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+            </svg>
+          </div>
+          <span class="text-xs tracking-widest text-aura-gold font-medium uppercase block mb-2">03. Medicina Regenerativa</span>
+          <h3 class="font-serif text-2xl text-aura-charcoal font-normal mb-3">Inductores y Biología Celular</h3>
+          <p class="text-aura-muted text-xs sm:text-sm leading-relaxed font-light">
+            Priorizamos la síntesis biológica de nuevo colágeno tipo I y elastina. Mediante hidroxiapatita cálcica, polinucleótidos y exosomas médicos, revertimos la degradación celular desde el interior del tejido.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 5. SELECTOR INTERACTIVO DE TRATAMIENTOS Y ESPECIALIDADES -->
+  <!-- ============================================================ -->
+  <section id="tratamientos" class="py-24 bg-aura-bg border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold block mb-2">Cartera de Servicios Médicos</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+            Tratamientos y Protocolos Avanzados
+          </h2>
+        </div>
+        <p class="text-aura-muted text-sm max-w-md font-light">
+          Seleccione una especialidad médica para explorar técnicas aplicadas, tiempos de recuperación y agendar su valoración clínica.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-10 border-b border-aura-border/80 scrollbar-none" id="treatment-tabs">
+        <button onclick="filterTreatments('facial', this)" class="treatment-tab active px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all whitespace-nowrap bg-aura-charcoal text-aura-cream border border-aura-charcoal">
+          Medicina Facial & Armonización
+        </button>
+        <button onclick="filterTreatments('dermatologia', this)" class="treatment-tab px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all whitespace-nowrap bg-transparent text-aura-muted hover:text-aura-charcoal border border-transparent hover:border-aura-border">
+          Dermatología Láser & Calidad Dérmica
+        </button>
+        <button onclick="filterTreatments('corporal', this)" class="treatment-tab px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all whitespace-nowrap bg-transparent text-aura-muted hover:text-aura-charcoal border border-transparent hover:border-aura-border">
+          Remodelación Corporal & Firmeza
+        </button>
+        <button onclick="filterTreatments('longevidad', this)" class="treatment-tab px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all whitespace-nowrap bg-transparent text-aura-muted hover:text-aura-charcoal border border-transparent hover:border-aura-border">
+          Longevidad & Medicina Preventiva
+        </button>
+      </div>
+
+      <!-- Treatments Grid Cards -->
+      <div id="treatments-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Treatments populated by JavaScript and accessible immediately -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 6. WIDGET INTERACTIVO: COMPARADOR ANTES VS. DESPUÉS -->
+  <!-- ============================================================ -->
+  <section id="casos" class="py-24 bg-aura-cream/40 border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Evidencia Clínica Contrastada</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+          Casos Clínicos: Antes y Después
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+        <p class="text-aura-muted text-sm sm:text-base font-light leading-relaxed">
+          Deslice el controlador interactivo para observar la regeneración tisular y la reposición de soporte facial. Fotografías clínicas sin retoque digital bajo iluminación médica estandarizada.
+        </p>
+      </div>
+
+      <!-- Case Selector Pills -->
+      <div class="flex justify-center gap-3 mb-10 flex-wrap">
+        <button onclick="switchCase(0, this)" class="case-btn active px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-charcoal bg-aura-charcoal text-aura-cream transition-all">
+          Caso 01: Armonización Facial Full Face
+        </button>
+        <button onclick="switchCase(1, this)" class="case-btn px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-border bg-aura-bg text-aura-muted hover:text-aura-charcoal transition-all">
+          Caso 02: Resurfacing Láser Fraccionado CO2
+        </button>
+        <button onclick="switchCase(2, this)" class="case-btn px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-border bg-aura-bg text-aura-muted hover:text-aura-charcoal transition-all">
+          Caso 03: Definición Mandibular y Cuello
+        </button>
+      </div>
+
+      <!-- Comparison Interactive Box & Clinical Card -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-aura-bg border border-aura-border p-6 sm:p-8 shadow-aura">
+        
+        <!-- Left: Interactive Split Slider -->
+        <div class="lg:col-span-8">
+          <div class="ba-slider-container aspect-[4/3] sm:aspect-[16/10] bg-aura-charcoal border border-aura-border relative cursor-ew-resize" id="ba-container">
+            
+            <!-- After Image (Base) -->
+            <img 
+              id="ba-after-img" 
+              src="https://images.unsplash.com/photo-1512290900672-1f5be63dc68c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Resultado Después del tratamiento" 
+              class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none filter contrast-[1.03]"
+            />
+            <div class="absolute bottom-4 right-4 bg-aura-dark/85 backdrop-blur-sm text-aura-cream text-[10px] tracking-widest-plus uppercase px-3 py-1.5 font-medium border border-aura-gold/50 z-10 pointer-events-none">
+              Después (1 Mes)
+            </div>
+
+            <!-- Before Image (Overlaid & Clipped) -->
+            <div class="ba-slider-before" id="ba-before-wrapper">
+              <img 
+                id="ba-before-img" 
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" 
+                alt="Estado clínico Antes del tratamiento" 
+                class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none filter grayscale-[25%] contrast-[0.96]"
+                style="width: 100%; max-width: none;"
+              />
+              <div class="absolute bottom-4 left-4 bg-aura-dark/85 backdrop-blur-sm text-aura-cream text-[10px] tracking-widest-plus uppercase px-3 py-1.5 font-medium border border-aura-border z-10 pointer-events-none">
+                Antes de Iniciar
+              </div>
+            </div>
+
+            <!-- Dividing Handle Bar -->
+            <div class="ba-slider-handle" id="ba-handle">
+              <div class="ba-handle-button">
+                <!-- SVG Left-Right Arrows -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L4.5 12m0 0l3.75-3.75M4.5 12h15m0 0l-3.75 3.75M19.5 12l-3.75-3.75" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Accessible HTML Range Input for screen readers and touch fallback -->
+            <input 
+              type="range" 
+              min="0" 
+              max="100" 
+              value="50" 
+              id="ba-range" 
+              class="sr-only" 
+              aria-label="Control deslizante para comparar imagen antes y después"
+            />
+          </div>
+
+          <!-- Helper hint -->
+          <div class="flex items-center justify-between text-[11px] text-aura-muted mt-3">
+            <span class="flex items-center gap-1.5">
+              <!-- SVG Hand Drag -->
+              <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+              </svg>
+              Arrastre el divisor central para comparar el resultado clínico
+            </span>
+            <span class="text-aura-subtle">Reg. Fotográfico Estandarizado</span>
+          </div>
+        </div>
+
+        <!-- Right: Clinical Case Details -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="border-b border-aura-border pb-4">
+            <span class="text-[10px] tracking-widest uppercase font-semibold text-aura-gold block mb-1" id="case-reg">HISTORIAL MÉDICO #F-204</span>
+            <h3 class="font-serif text-2xl text-aura-charcoal font-normal" id="case-title">Armonización Facial & Soporte Malar</h3>
+          </div>
+
+          <!-- Specs list -->
+          <div class="space-y-3 text-xs">
+            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
+              <span class="text-aura-muted uppercase tracking-wider">Paciente:</span>
+              <span class="font-medium text-aura-charcoal" id="case-patient">Mujer, 44 años</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
+              <span class="text-aura-muted uppercase tracking-wider">Protocolo:</span>
+              <span class="font-medium text-aura-charcoal text-right" id="case-protocol">Ácido Hialurónico + Inductor Dérmico</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
+              <span class="text-aura-muted uppercase tracking-wider">Facultativo:</span>
+              <span class="font-medium text-aura-charcoal" id="case-doctor">Dr. Alejandro de la Vega</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
+              <span class="text-aura-muted uppercase tracking-wider">Sesiones:</span>
+              <span class="font-medium text-aura-charcoal" id="case-sessions">1 Sesión médica + revisión a los 21 días</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
+              <span class="text-aura-muted uppercase tracking-wider">Tiempo de Baja:</span>
+              <span class="font-medium text-emerald-800" id="case-recovery">Inmediato (Sin hematomas residuales)</span>
+            </div>
+          </div>
+
+          <!-- Clinical Doctor Note -->
+          <div class="bg-aura-cream p-4 border-l-2 border-aura-gold text-xs leading-relaxed text-aura-muted italic" id="case-notes">
+            "El objetivo prioritario fue devolver la proyección al tercio medio sin añadir volumen innecesario en mejillas, restaurando la transición del surco nasogeniano con cánula atraumática bajo control ecográfico."
+          </div>
+
+          <!-- Action Button to Book this treatment -->
+          <button onclick="prefillBookingFromCase()" class="w-full bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2">
+            <!-- SVG Calendar -->
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Consultar Disponibilidad para este Caso</span>
+          </button>
+
+          <!-- Sanitary legal notice -->
+          <p class="text-[10px] text-aura-subtle leading-normal">
+            * Disposición sanitaria: Los resultados individuales pueden variar en función de las características dérmicas, edad biológica y estilo de vida del paciente.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 7. HERRAMIENTA INTERACTIVA: TEST DE DIAGNÓSTICO RÁPIDO -->
+  <!-- ============================================================ -->
+  <section id="diagnostico" class="py-24 bg-aura-bg border-b border-aura-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center space-y-4 mb-12">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Evaluación Médica Digital</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+          Test de Diagnóstico Rápido
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+        <p class="text-aura-muted text-sm sm:text-base font-light max-w-xl mx-auto">
+          Responda a 3 preguntas clínicas orientativas. Nuestro algoritmo médico le sugerirá el protocolo idóneo antes de su consulta presencial.
+        </p>
+      </div>
+
+      <!-- Quiz Box Container -->
+      <div class="bg-aura-cream border border-aura-border shadow-aura p-6 sm:p-10 relative">
+        
+        <!-- Step Progress Bar -->
+        <div class="mb-8">
+          <div class="flex items-center justify-between text-xs uppercase tracking-widest text-aura-muted mb-2 font-medium">
+            <span id="quiz-step-label">Paso 1 de 3: Área prioritaria</span>
+            <span id="quiz-step-percent">33%</span>
+          </div>
+          <div class="w-full h-1.5 bg-aura-border overflow-hidden">
+            <div id="quiz-progress-bar" class="h-full bg-aura-gold transition-all duration-500" style="width: 33%;"></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Question Steps -->
+        <div id="quiz-content">
+
+          <!-- PASO 1: ZONA A TRATAR -->
+          <div id="quiz-step-1" class="quiz-step">
+            <h3 class="font-serif text-2xl text-aura-charcoal mb-2 font-normal">1. ¿Qué área de su fisonomía desearía perfeccionar prioritariamente?</h3>
+            <p class="text-xs text-aura-muted mb-6">Seleccione la opción que mejor describa su inquietud principal:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Opción A -->
+              <button onclick="selectQuizOption(1, 'facial_expresion', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 border border-aura-border flex items-center justify-center text-aura-gold group-hover:border-aura-gold bg-aura-cream">
+                    <!-- SVG Eye -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Tercio Superior y Mirada</span>
+                    <span class="block text-[11px] text-aura-muted font-light">Líneas de expresión, patas de gallo y ojeras</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- Opción B -->
+              <button onclick="selectQuizOption(1, 'facial_flacidez', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 border border-aura-border flex items-center justify-center text-aura-gold group-hover:border-aura-gold bg-aura-cream">
+                    <!-- SVG Diamond -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Óvalo Facial y Cuello</span>
+                    <span class="block text-[11px] text-aura-muted font-light">Pérdida de definición mandibular y flacidez</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- Opción C -->
+              <button onclick="selectQuizOption(1, 'piel_textura', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 border border-aura-border flex items-center justify-center text-aura-gold group-hover:border-aura-gold bg-aura-cream">
+                    <!-- SVG Sparkles -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Calidad Dérmica y Manchas</span>
+                    <span class="block text-[11px] text-aura-muted font-light">Tono apagado, poro dilatado y melasma</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- Opción D -->
+              <button onclick="selectQuizOption(1, 'longevidad_cuerpo', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 border border-aura-border flex items-center justify-center text-aura-gold group-hover:border-aura-gold bg-aura-cream">
+                    <!-- SVG Heart / Wellness -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Vitalidad & Contorno Corporal</span>
+                    <span class="block text-[11px] text-aura-muted font-light">Grasa localizada, energía y longevidad celular</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 2: OBJETIVO CLÍNICO (Oculto inicialmente) -->
+          <div id="quiz-step-2" class="quiz-step hidden">
+            <h3 class="font-serif text-2xl text-aura-charcoal mb-2 font-normal">2. ¿Cuál es su objetivo estético y médico prioritario?</h3>
+            <p class="text-xs text-aura-muted mb-6">Indique la expectativa que desea alcanzar:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button onclick="selectQuizOption(2, 'naturalidad_descanso', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal mb-1">Efecto Buena Cara y Descanso</span>
+                <span class="block text-[11px] text-aura-muted font-light">Atenuar el aspecto fatigado manteniendo absoluta naturalidad sin cambios drásticos.</span>
+              </button>
+
+              <button onclick="selectQuizOption(2, 'lifting_sin_cirugia', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal mb-1">Firmeza y Reposición Estructural</span>
+                <span class="block text-[11px] text-aura-muted font-light">Efecto tensor no quirúrgico para contrarrestar la gravedad y descolgamiento.</span>
+              </button>
+
+              <button onclick="selectQuizOption(2, 'regeneracion_profunda', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal mb-1">Regeneración Profunda de la Piel</span>
+                <span class="block text-[11px] text-aura-muted font-light">Eliminar daño solar acumulado, manchas y renovar la epidermis con láser médico.</span>
+              </button>
+
+              <button onclick="selectQuizOption(2, 'prevencion_proactiva', this)" class="quiz-opt-btn text-left p-4 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all group">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal mb-1">Prevención y Longevidad Celular</span>
+                <span class="block text-[11px] text-aura-muted font-light">Ralentizar el reloj biológico mediante nutrientes intravenosos y medicina preventiva.</span>
+              </button>
+            </div>
+
+            <div class="mt-6 flex justify-start">
+              <button onclick="prevQuizStep(1)" class="text-xs uppercase tracking-widest text-aura-muted hover:text-aura-charcoal flex items-center gap-1.5 font-medium">
+                <!-- SVG Arrow Left -->
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Paso Anterior
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 3: RANGO DE EDAD -->
+          <div id="quiz-step-3" class="quiz-step hidden">
+            <h3 class="font-serif text-2xl text-aura-charcoal mb-2 font-normal">3. ¿En qué franja de edad se encuentra?</h3>
+            <p class="text-xs text-aura-muted mb-6">La densidad dérmica y el metabolismo celular varían según la etapa biológica:</p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <button onclick="selectQuizOption(3, '25-35', this)" class="quiz-opt-btn text-center p-5 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all">
+                <span class="block font-serif text-2xl text-aura-charcoal mb-1">25 - 35</span>
+                <span class="block text-[10px] uppercase tracking-wider text-aura-muted font-medium">Prevención & Glow</span>
+              </button>
+
+              <button onclick="selectQuizOption(3, '36-45', this)" class="quiz-opt-btn text-center p-5 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all">
+                <span class="block font-serif text-2xl text-aura-charcoal mb-1">36 - 45</span>
+                <span class="block text-[10px] uppercase tracking-wider text-aura-muted font-medium">Bioestimulación</span>
+              </button>
+
+              <button onclick="selectQuizOption(3, '46-55', this)" class="quiz-opt-btn text-center p-5 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all">
+                <span class="block font-serif text-2xl text-aura-charcoal mb-1">46 - 55</span>
+                <span class="block text-[10px] uppercase tracking-wider text-aura-muted font-medium">Reposición de Soporte</span>
+              </button>
+
+              <button onclick="selectQuizOption(3, '55+', this)" class="quiz-opt-btn text-center p-5 bg-aura-bg border border-aura-border hover:border-aura-gold transition-all">
+                <span class="block font-serif text-2xl text-aura-charcoal mb-1">+55</span>
+                <span class="block text-[10px] uppercase tracking-wider text-aura-muted font-medium">Regeneración Global</span>
+              </button>
+            </div>
+
+            <div class="mt-6 flex justify-start">
+              <button onclick="prevQuizStep(2)" class="text-xs uppercase tracking-widest text-aura-muted hover:text-aura-charcoal flex items-center gap-1.5 font-medium">
+                <!-- SVG Arrow Left -->
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Paso Anterior
+              </button>
+            </div>
+          </div>
+
+          <!-- RESULTADO DEL DIAGNÓSTICO -->
+          <div id="quiz-step-result" class="quiz-step hidden">
+            <div class="bg-aura-bg border border-aura-gold p-6 sm:p-8 space-y-6">
+              
+              <div class="flex items-center justify-between border-b border-aura-border pb-4">
+                <div>
+                  <span class="text-[10px] uppercase tracking-widest font-semibold text-aura-gold">Prescripción Orientativa Algorítmica</span>
+                  <h4 class="font-serif text-2xl text-aura-charcoal" id="quiz-result-title">Protocolo AURA Full-Face Harmonie</h4>
+                </div>
+                <!-- SVG Verified Laurel -->
+                <div class="w-10 h-10 bg-aura-goldLight border border-aura-gold flex items-center justify-center text-aura-gold">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                  </svg>
+                </div>
+              </div>
+
+              <p class="text-xs sm:text-sm text-aura-muted leading-relaxed font-light" id="quiz-result-desc">
+                Basado en sus respuestas, el protocolo idóneo combina una sesión de bioestimulación de colágeno autólogo con neuromodulación periorbital sutil.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2 text-xs border-y border-aura-border">
+                <div>
+                  <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Especialista Sugerido:</span>
+                  <span class="font-medium text-aura-charcoal" id="quiz-result-doctor">Dr. Alejandro de la Vega</span>
+                </div>
+                <div>
+                  <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Sesiones Estimadas:</span>
+                  <span class="font-medium text-aura-charcoal" id="quiz-result-sessions">1 a 2 sesiones anuales</span>
+                </div>
+                <div>
+                  <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Rango Orientativo:</span>
+                  <span class="font-medium text-aura-charcoal" id="quiz-result-price">Desde 480 €</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button onclick="applyQuizToBooking()" class="flex-1 bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2">
+                  <!-- SVG Calendar Check -->
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Trasladar Recomendación a la Reserva</span>
+                </button>
+                <button onclick="resetQuiz()" class="px-5 py-3.5 border border-aura-border text-aura-muted hover:text-aura-charcoal text-xs uppercase tracking-widest transition-colors font-medium">
+                  Reiniciar Test
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 8. SISTEMA DE RESERVA DE CITA INTERACTIVO (BOOKING WIZARD) -->
+  <!-- ============================================================ -->
+  <section id="reserva" class="py-24 bg-aura-cream/50 border-b border-aura-border/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-4 mb-14">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Reserva Oficial de Cita Médica</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+          Agenda Privada en 3 Pasos
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+        <p class="text-aura-muted text-sm sm:text-base font-light max-w-xl mx-auto">
+          Seleccione facultativo, elija fecha en tiempo real y configure sus preferencias de discreción médica.
+        </p>
+      </div>
+
+      <!-- Booking Wizard Box -->
+      <div class="bg-aura-bg border border-aura-border shadow-aura p-6 sm:p-10">
+        
+        <!-- Step Indicator -->
+        <div class="grid grid-cols-3 gap-2 pb-8 mb-8 border-b border-aura-border">
+          <div class="step-indicator active flex flex-col sm:flex-row items-center sm:items-start gap-2" id="step-ind-1">
+            <span class="w-7 h-7 rounded-full bg-aura-charcoal text-aura-cream text-xs flex items-center justify-center font-semibold">1</span>
+            <div class="text-center sm:text-left">
+              <span class="block text-[10px] uppercase tracking-widest text-aura-gold font-semibold">Paso 1</span>
+              <span class="text-xs font-medium text-aura-charcoal hidden sm:block">Tratamiento & Médico</span>
+            </div>
+          </div>
+
+          <div class="step-indicator flex flex-col sm:flex-row items-center sm:items-start gap-2 opacity-50" id="step-ind-2">
+            <span class="w-7 h-7 rounded-full bg-aura-sand text-aura-charcoal text-xs flex items-center justify-center font-semibold">2</span>
+            <div class="text-center sm:text-left">
+              <span class="block text-[10px] uppercase tracking-widest text-aura-muted font-semibold">Paso 2</span>
+              <span class="text-xs font-medium text-aura-charcoal hidden sm:block">Fecha & Horario</span>
+            </div>
+          </div>
+
+          <div class="step-indicator flex flex-col sm:flex-row items-center sm:items-start gap-2 opacity-50" id="step-ind-3">
+            <span class="w-7 h-7 rounded-full bg-aura-sand text-aura-charcoal text-xs flex items-center justify-center font-semibold">3</span>
+            <div class="text-center sm:text-left">
+              <span class="block text-[10px] uppercase tracking-widest text-aura-muted font-semibold">Paso 3</span>
+              <span class="text-xs font-medium text-aura-charcoal hidden sm:block">Datos & Discreción</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard Forms -->
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+          
+          <!-- STEP 1: ESPECIALIDAD Y DOCTOR -->
+          <div id="booking-step-1" class="wizard-step space-y-6">
+            <h3 class="font-serif text-2xl text-aura-charcoal font-normal">1. Seleccione Tratamiento y Facultativo</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Tratamiento Dropdown -->
+              <div>
+                <label for="book-treatment" class="block text-xs uppercase tracking-widest text-aura-muted font-medium mb-2">Servicio / Protocolo Médico</label>
+                <div class="relative">
+                  <select id="book-treatment" class="w-full bg-aura-cream border border-aura-border px-4 py-3 text-xs text-aura-charcoal focus:outline-none focus:border-aura-gold appearance-none">
+                    <option value="Armonización Facial con Ácido Hialurónico">Armonización Facial & Soporte con Ácido Hialurónico</option>
+                    <option value="Bioestimulación de Colágeno Radiesse">Bioestimulación con Hidroxiapatita Cálcica</option>
+                    <option value="Resurfacing Láser Fraccionado CO2">Resurfacing Láser Fraccionado CO2</option>
+                    <option value="Radiofrecuencia Fraccionada Morpheus8">Radiofrecuencia Fraccionada Morpheus8</option>
+                    <option value="Remodelación Corporal CoolSculpting Elite">Remodelación Corporal CoolSculpting Elite</option>
+                    <option value="Terapia de Longevidad IV Drips y Exosomas">Terapia de Longevidad Celular & Sueroterapia IV</option>
+                    <option value="Primera Consulta de Diagnóstico Integral">Primera Consulta de Diagnóstico Integral con Ecografía (80 €)</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-aura-muted">
+                    <!-- SVG Chevron Down -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Facultativo Selección -->
+              <div>
+                <label for="book-doctor" class="block text-xs uppercase tracking-widest text-aura-muted font-medium mb-2">Especialista Facultativo</label>
+                <div class="relative">
+                  <select id="book-doctor" class="w-full bg-aura-cream border border-aura-border px-4 py-3 text-xs text-aura-charcoal focus:outline-none focus:border-aura-gold appearance-none">
+                    <option value="Dr. Alejandro de la Vega">Dr. Alejandro de la Vega (Director Médico • Cirugía & Armonización)</option>
+                    <option value="Dra. Sofía Valenzuela">Dra. Sofía Valenzuela (Dermatóloga Quirúrgica & Especialista Láser)</option>
+                    <option value="Dra. Carmen Montero">Dra. Carmen Montero (Medicina Antienvejecimiento & Longevidad)</option>
+                    <option value="Cualquier facultativo disponible">Primer facultativo con disponibilidad prioritaria</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-aura-muted">
+                    <!-- SVG Chevron Down -->
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor micro-card preview -->
+            <div class="bg-aura-cream/60 border border-aura-border p-4 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-aura-gold">
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&q=80" alt="Doctor" class="w-full h-full object-cover">
+              </div>
+              <div class="text-xs">
+                <span class="block font-medium text-aura-charcoal">Garantía Sanitaria AURA Clinic</span>
+                <span class="text-aura-muted">Todos los actos médicos son realizados exclusivamente por facultativos con número oficial de colegiado en Madrid.</span>
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-4">
+              <button type="button" onclick="goToBookingStep(2)" class="bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal px-8 py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2">
+                <span>Continuar a Fecha y Horario</span>
+                <!-- SVG Arrow Right -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: CALENDARIO Y HORARIOS -->
+          <div id="booking-step-2" class="wizard-step hidden space-y-6">
+            <h3 class="font-serif text-2xl text-aura-charcoal font-normal">2. Seleccione Fecha y Franja Horaria</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              
+              <!-- Calendario interactivo estilizado -->
+              <div class="lg:col-span-7 bg-aura-cream p-5 border border-aura-border">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="font-serif text-lg text-aura-charcoal font-medium" id="cal-month-title">Octubre 2026</span>
+                  <div class="flex items-center gap-2">
+                    <button type="button" onclick="changeCalMonth(-1)" class="p-1.5 border border-aura-border hover:border-aura-charcoal text-aura-charcoal transition-colors" aria-label="Mes anterior">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+                    <button type="button" onclick="changeCalMonth(1)" class="p-1.5 border border-aura-border hover:border-aura-charcoal text-aura-charcoal transition-colors" aria-label="Mes siguiente">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Días de la semana -->
+                <div class="grid grid-cols-7 gap-1 text-center text-[10px] uppercase tracking-wider text-aura-muted font-semibold mb-2">
+                  <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span class="text-aura-subtle/50">Dom</span>
+                </div>
+
+                <!-- Matriz de días -->
+                <div class="grid grid-cols-7 gap-1 text-center text-xs" id="cal-days-grid">
+                  <!-- Generated by JS -->
+                </div>
+              </div>
+
+              <!-- Selector de Franja Horaria -->
+              <div class="lg:col-span-5 space-y-4">
+                <span class="block text-xs uppercase tracking-widest text-aura-muted font-medium">Horarios Disponibles para el <strong id="selected-date-label" class="text-aura-charcoal">Día 15</strong></span>
+
+                <!-- Mañanas -->
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-aura-charcoal block mb-2">Turno de Mañana</span>
+                  <div class="grid grid-cols-3 gap-2" id="morning-slots">
+                    <button type="button" onclick="selectTimeSlot('10:00 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal active">10:00 h</button>
+                    <button type="button" onclick="selectTimeSlot('11:30 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal">11:30 h</button>
+                    <button type="button" onclick="selectTimeSlot('12:45 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal">12:45 h</button>
+                  </div>
+                </div>
+
+                <!-- Tardes -->
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-aura-charcoal block mb-2">Turno de Tarde</span>
+                  <div class="grid grid-cols-3 gap-2" id="afternoon-slots">
+                    <button type="button" onclick="selectTimeSlot('16:00 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal">16:00 h</button>
+                    <button type="button" onclick="selectTimeSlot('17:30 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal">17:30 h</button>
+                    <button type="button" onclick="selectTimeSlot('19:00 h', this)" class="time-slot-btn py-2 text-xs border border-aura-border bg-aura-bg hover:border-aura-gold transition-colors text-aura-charcoal">19:00 h</button>
+                  </div>
+                </div>
+
+                <!-- Resumen de cita parcial -->
+                <div class="bg-aura-goldLight p-3 border border-aura-gold/40 text-xs space-y-1">
+                  <div class="flex justify-between">
+                    <span class="text-aura-muted">Fecha elegida:</span>
+                    <span class="font-medium text-aura-charcoal" id="summary-date">Jueves, 15 Octubre 2026</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-aura-muted">Hora:</span>
+                    <span class="font-medium text-aura-charcoal" id="summary-time">10:00 h</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" onclick="goToBookingStep(1)" class="border border-aura-border px-6 py-3 text-xs uppercase tracking-widest text-aura-muted hover:text-aura-charcoal transition-colors">
+                Volver al Paso 1
+              </button>
+              <button type="button" onclick="goToBookingStep(3)" class="bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal px-8 py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2">
+                <span>Continuar a Datos de Contacto</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: DATOS Y PREFERENCIAS DE DISCRECIÓN -->
+          <div id="booking-step-3" class="wizard-step hidden space-y-6">
+            <h3 class="font-serif text-2xl text-aura-charcoal font-normal">3. Datos del Paciente y Preferencias Sanitarias</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="patient-name" class="block text-xs uppercase tracking-widest text-aura-muted font-medium mb-2">Nombre y Apellidos *</label>
+                <input type="text" id="patient-name" required placeholder="Ej. Elena Morales" class="w-full bg-aura-cream border border-aura-border px-4 py-3 text-xs text-aura-charcoal focus:outline-none focus:border-aura-gold">
+              </div>
+
+              <div>
+                <label for="patient-phone" class="block text-xs uppercase tracking-widest text-aura-muted font-medium mb-2">Teléfono Móvil (Confirmación por SMS/WhatsApp) *</label>
+                <input type="tel" id="patient-phone" required placeholder="+34 600 000 000" class="w-full bg-aura-cream border border-aura-border px-4 py-3 text-xs text-aura-charcoal focus:outline-none focus:border-aura-gold">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="patient-email" class="block text-xs uppercase tracking-widest text-aura-muted font-medium mb-2">Correo Electrónico (Justificante Sanitario) *</label>
+                <input type="email" id="patient-email" required placeholder="correo@ejemplo.com" class="w-full bg-aura-cream border border-aura-border px-4 py-3 text-xs text-aura-charcoal focus:outline-none focus:border-aura-gold">
+              </div>
+            </div>
+
+            <!-- Protocolo de Discreción VIP Checkbox -->
+            <div class="p-4 bg-aura-cream border border-aura-border space-y-3">
+              <label class="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" id="vip-discretion" class="mt-1 accent-aura-gold w-4 h-4">
+                <div>
+                  <span class="block text-xs font-semibold uppercase tracking-wider text-aura-charcoal">Solicitar Acceso Confidencial VIP (Sin espera en recepción)</span>
+                  <span class="block text-[11px] text-aura-muted font-light mt-0.5">
+                    Acceso directo desde el ascensor del parking privado a la suite médica individual sin coincidencia con otros pacientes.
+                  </span>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 cursor-pointer pt-2 border-t border-aura-border/60">
+                <input type="checkbox" required class="mt-1 accent-aura-gold w-4 h-4">
+                <span class="text-[11px] text-aura-muted font-light leading-normal">
+                  He leído y acepto la <a href="#" class="underline text-aura-charcoal hover:text-aura-gold">Política de Protección de Datos Médicos (RGPD Sanitario)</a> y consiento el tratamiento de mis datos de salud para la gestión de la cita.
+                </span>
+              </label>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button type="button" onclick="goToBookingStep(2)" class="border border-aura-border px-6 py-3 text-xs uppercase tracking-widest text-aura-muted hover:text-aura-charcoal transition-colors">
+                Volver al Calendario
+              </button>
+              <button type="submit" class="bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal px-9 py-4 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 shadow-aura">
+                <!-- SVG Checkmark -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Confirmar Cita Médica</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 9. EQUIPO MÉDICO Y DOCTORES (Social Proof Sanitaria) -->
+  <!-- ============================================================ -->
+  <section id="equipo" class="py-24 bg-aura-bg border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Dirección Médica & Facultativos</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+          Un Cuadro Médico de Excelencia Internacional
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+        <p class="text-aura-muted text-sm sm:text-base font-light leading-relaxed">
+          Cada paciente es atendido por especialistas con más de una década de dedicación hospitalaria, miembros de las sociedades científicas más prestigiosas del mundo.
+        </p>
+      </div>
+
+      <!-- Doctors Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Doctor 1: Dr. Alejandro de la Vega -->
+        <div class="bg-aura-cream border border-aura-border group hover:border-aura-gold transition-all duration-300 shadow-sm hover:shadow-aura">
+          <div class="aspect-[3/4] overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" 
+              alt="Dr. Alejandro de la Vega - Director Médico" 
+              class="w-full h-full object-cover object-top filter grayscale-[20%] group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute bottom-3 left-3 bg-aura-dark/90 text-aura-cream text-[10px] tracking-widest uppercase px-2.5 py-1 border border-aura-gold/40">
+              Nº Colegiado 282859124
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div>
+              <span class="text-[10px] uppercase tracking-ultra text-aura-gold font-semibold block">Director Médico</span>
+              <h3 class="font-serif text-2xl text-aura-charcoal font-normal">Dr. Alejandro de la Vega</h3>
+            </div>
+            <p class="text-xs text-aura-muted leading-relaxed font-light">
+              Especialista en Cirugía Estética y Armonización Facial. Fellowship en Harvard Medical School (Boston). Pionero en España en infiltración guiada por ecografía de alta frecuencia.
+            </p>
+            <div class="pt-3 border-t border-aura-border text-[11px] text-aura-charcoal/80 space-y-1 font-medium">
+              <span class="block">• Miembro Titular de la SEME y SECPRE</span>
+              <span class="block">• Docente en Máster de Medicina Estética Avanzada</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 2: Dra. Sofía Valenzuela -->
+        <div class="bg-aura-cream border border-aura-border group hover:border-aura-gold transition-all duration-300 shadow-sm hover:shadow-aura">
+          <div class="aspect-[3/4] overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1594824813583-b78f4b0051e7?auto=format&fit=crop&w=800&q=80" 
+              alt="Dra. Sofía Valenzuela - Dermatóloga Quirúrgica" 
+              class="w-full h-full object-cover object-top filter grayscale-[20%] group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute bottom-3 left-3 bg-aura-dark/90 text-aura-cream text-[10px] tracking-widest uppercase px-2.5 py-1 border border-aura-gold/40">
+              Nº Colegiado 282861409
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div>
+              <span class="text-[10px] uppercase tracking-ultra text-aura-gold font-semibold block">Dermatología Quirúrgica & Láser</span>
+              <h3 class="font-serif text-2xl text-aura-charcoal font-normal">Dra. Sofía Valenzuela</h3>
+            </div>
+            <p class="text-xs text-aura-muted leading-relaxed font-light">
+              Especialista vía MIR en Dermatología Médico-Quirúrgica por el Hospital Universitario La Paz. Experta de referencia en rejuvenecimiento dérmico mediante láser fraccionado CO2 y patología pigmentaria.
+            </p>
+            <div class="pt-3 border-t border-aura-border text-[11px] text-aura-charcoal/80 space-y-1 font-medium">
+              <span class="block">• Miembro de la Academia Europea de Dermatología (EADV)</span>
+              <span class="block">• Ponente Internacional en IMCAS París</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor 3: Dra. Carmen Montero -->
+        <div class="bg-aura-cream border border-aura-border group hover:border-aura-gold transition-all duration-300 shadow-sm hover:shadow-aura">
+          <div class="aspect-[3/4] overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" 
+              alt="Dra. Carmen Montero - Medicina Antienvejecimiento y Longevidad" 
+              class="w-full h-full object-cover object-top filter grayscale-[20%] group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute bottom-3 left-3 bg-aura-dark/90 text-aura-cream text-[10px] tracking-widest uppercase px-2.5 py-1 border border-aura-gold/40">
+              Nº Colegiado 282847230
+            </div>
+          </div>
+          <div class="p-6 space-y-3">
+            <div>
+              <span class="text-[10px] uppercase tracking-ultra text-aura-gold font-semibold block">Medicina Antienvejecimiento</span>
+              <h3 class="font-serif text-2xl text-aura-charcoal font-normal">Dra. Carmen Montero</h3>
+            </div>
+            <p class="text-xs text-aura-muted leading-relaxed font-light">
+              Máster en Medicina Regenerativa y Longevidad Celular por la Universidad de Ginebra. Diseña protocolos de terapia biológica intravenosa, optimización metabólica y modulación hormonal bioidéntica.
+            </p>
+            <div class="pt-3 border-t border-aura-border text-[11px] text-aura-charcoal/80 space-y-1 font-medium">
+              <span class="block">• Especialista en Epigenética y Biomarcadores</span>
+              <span class="block">• Miembro de la Sociedad Española de Medicina Antienvejecimiento (SEMAL)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 10. TESTIMONIOS Y RESEÑAS VERIFICADAS -->
+  <!-- ============================================================ -->
+  <section class="py-24 bg-aura-cream/40 border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+        <div>
+          <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold block mb-2">Opiniones Clínicas Verificadas</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
+            La Experiencia de Nuestros Pacientes
+          </h2>
+        </div>
+        
+        <!-- Metric badge summary (Pure SVG Stars) -->
+        <div class="flex items-center gap-4 bg-aura-bg border border-aura-border p-4 shadow-sm">
+          <div class="text-right">
+            <span class="font-serif text-3xl font-medium text-aura-charcoal leading-none">4.9</span>
+            <span class="text-[10px] text-aura-muted block mt-0.5">Sobre 5.0</span>
+          </div>
+          <div class="border-l border-aura-border pl-4 space-y-1">
+            <div class="flex items-center gap-1 text-aura-gold">
+              <!-- 5 Pure SVG Gold Stars -->
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            </div>
+            <span class="text-[11px] font-medium text-aura-charcoal block">+284 Valoraciones Auditadas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-aura-bg border border-aura-border p-8 flex flex-col justify-between shadow-sm">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-aura-gold gap-0.5">
+                <!-- 5 Stars SVG -->
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 font-medium border border-emerald-200">
+                <svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Paciente Verificado
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-aura-charcoal leading-relaxed font-light italic">
+              "El Dr. De la Vega tiene una sensibilidad estética excepcional. Me preocupaba perder la naturalidad de mis rasgos, pero el resultado con Radiesse y neuromodulación es sencillamente radiante: parezco descansada tras un mes de vacaciones."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-aura-border mt-6">
+            <span class="block font-serif text-base text-aura-charcoal font-medium">B. de la Serna</span>
+            <span class="block text-[11px] text-aura-muted">Armonización Facial • Madrid</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-aura-bg border border-aura-border p-8 flex flex-col justify-between shadow-sm">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-aura-gold gap-0.5">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 font-medium border border-emerald-200">
+                <svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Paciente Verificado
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-aura-charcoal leading-relaxed font-light italic">
+              "Llevaba años lidiando con secuelas de acné y manchas solares. La Dra. Valenzuela me propuso el protocolo láser CO2 combinado con exosomas. La recuperación fue rapidísima y mi piel ha recuperado una textura compacta y limpia."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-aura-border mt-6">
+            <span class="block font-serif text-base text-aura-charcoal font-medium">Carlos V. M.</span>
+            <span class="block text-[11px] text-aura-muted">Láser Dermatológico • Pozuelo de Alarcón</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-aura-bg border border-aura-border p-8 flex flex-col justify-between shadow-sm">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex text-aura-gold gap-0.5">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              </div>
+              <span class="inline-flex items-center gap-1 text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 font-medium border border-emerald-200">
+                <svg class="w-3 h-3 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Paciente Verificado
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-aura-charcoal leading-relaxed font-light italic">
+              "El servicio de concierge y el acceso privado desde el parking marcan una diferencia enorme. Para quienes valoramos la confidencialidad, AURA es un santuario. La sueroterapia y el protocolo de longevidad me han devuelto la vitalidad."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-aura-border mt-6">
+            <span class="block font-serif text-base text-aura-charcoal font-medium">Victoria G. H.</span>
+            <span class="block text-[11px] text-aura-muted">Medicina Preventiva & Longevidad • Madrid</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 11. ESPACIO CLÍNICO, ACCESO DISCRETO & UBICACIÓN SERRANO -->
+  <!-- ============================================================ -->
+  <section id="instalaciones" class="py-24 bg-aura-bg border-b border-aura-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Editorial Gallery & Space Highlights -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold block">Santuario Clínico en Serrano 45</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal leading-tight">
+            Diseñado para la calma, la esterilidad y la discreción.
+          </h2>
+          <p class="text-aura-muted text-sm sm:text-base leading-relaxed font-light">
+            Nuestras instalaciones han sido concebidas bajo estrictas directrices de bioseguridad hospitalaria, integradas en una atmósfera de quiet luxury donde cada detalle transmite serenidad y pulcritud.
+          </p>
+
+          <!-- 3 VIP Amenities -->
+          <div class="space-y-4 pt-4">
+            
+            <div class="flex items-start gap-4 p-4 bg-aura-cream border border-aura-border">
+              <div class="w-10 h-10 border border-aura-gold flex items-center justify-center text-aura-gold shrink-0 bg-aura-bg">
+                <!-- SVG Car / Parking -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V4.5m0 3h-4.5m4.5 0H21" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xs uppercase tracking-wider font-semibold text-aura-charcoal">Parking Subterráneo Privado</h3>
+                <p class="text-xs text-aura-muted font-light mt-0.5">Plaza reservada para pacientes en el propio edificio con acceso inmediato al ascensor de la clínica.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-aura-cream border border-aura-border">
+              <div class="w-10 h-10 border border-aura-gold flex items-center justify-center text-aura-gold shrink-0 bg-aura-bg">
+                <!-- SVG Door / Private Suite -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xs uppercase tracking-wider font-semibold text-aura-charcoal">Suites de Recuperación Aisladas</h3>
+                <p class="text-xs text-aura-muted font-light mt-0.5">Salas de tratamiento individuales equipadas con climatización de flujo laminar y máxima insonorización.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-aura-cream border border-aura-border">
+              <div class="w-10 h-10 border border-aura-gold flex items-center justify-center text-aura-gold shrink-0 bg-aura-bg">
+                <!-- SVG Sparkle / Filter -->
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-2.171 7.147l-1.077 1.078a1.5 1.5 0 01-2.122 0l-4.242-4.243a1.5 1.5 0 010-2.122l1.077-1.077m10.607-1.06l1.078-1.078a1.5 1.5 0 000-2.122L16.907 3.32a1.5 1.5 0 00-2.122 0l-1.078 1.078" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xs uppercase tracking-wider font-semibold text-aura-charcoal">Quirófano Menor Ambulatorio Certificado</h3>
+                <p class="text-xs text-aura-muted font-light mt-0.5">Homologado para procedimientos de cirugía plástica menor y tecnologías de energía láser ablativo.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Styled Architectural Visual & Map Card -->
+        <div class="lg:col-span-6 space-y-6">
+          <!-- Main Clinic Suite Photo -->
+          <div class="aspect-[16/10] overflow-hidden border border-aura-border relative shadow-aura">
+            <img 
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" 
+              alt="Instalaciones de diseño de AURA Clinic en Calle Serrano" 
+              class="w-full h-full object-cover filter contrast-[0.98]"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-aura-dark/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-aura-cream flex items-center justify-between">
+              <span class="font-serif text-lg">Suite de Tratamiento Principal</span>
+              <span class="text-[10px] tracking-widest uppercase text-aura-sand border border-aura-gold/40 px-2 py-0.5">Barrio de Salamanca</span>
+            </div>
+          </div>
+
+          <!-- Stylized Map & Arrival Info Mockup -->
+          <div class="bg-aura-cream border border-aura-border p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-aura-border pb-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <span class="text-xs uppercase tracking-widest font-semibold text-aura-charcoal">Cómo Llegar</span>
+              </div>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-[11px] text-aura-gold hover:text-aura-charcoal uppercase tracking-wider font-medium flex items-center gap-1 transition-colors">
+                <span>Abrir en Google Maps</span>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div>
+                <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Dirección:</span>
+                <span class="font-medium text-aura-charcoal">Calle Serrano 45, Planta 2ª</span>
+                <span class="block text-aura-muted">28001 Madrid, España</span>
+              </div>
+              <div>
+                <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Transporte & Metro:</span>
+                <span class="font-medium text-aura-charcoal">Serrano (Línea 4)</span>
+                <span class="block text-aura-muted">Rubén Darío (Línea 5) / Parking Serrano 45</span>
+              </div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between text-[11px] text-aura-muted border-t border-aura-border/60">
+              <span>Atención telefónica directa:</span>
+              <a href="tel:+34910234567" class="font-semibold text-aura-charcoal hover:text-aura-gold transition-colors">+34 910 234 567</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 12. PREGUNTAS FRECUENTES (FAQ Acordeón) -->
+  <!-- ============================================================ -->
+  <section class="py-20 bg-aura-cream/30 border-b border-aura-border/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center space-y-4 mb-14">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Claridad Médica</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-aura-charcoal font-normal">
+          Preguntas Frecuentes
+        </h2>
+        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-aura-bg border border-aura-border">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none">
+            <span class="font-serif text-xl text-aura-charcoal font-normal">¿En qué consiste la primera consulta de diagnóstico y valoración?</span>
+            <div class="w-7 h-7 border border-aura-border flex items-center justify-center text-aura-gold shrink-0 transition-transform faq-icon">
+              <!-- SVG Plus -->
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-aura-muted leading-relaxed font-light border-t border-aura-border/60 pt-4">
+            La primera visita tiene una duración de 45 minutos. El facultativo realiza un historial clínico completo, análisis de hábitos y calidad cutánea, seguido de una ecografía facial de alta resolución. Con estos datos se traza una propuesta terapéutica personalizada sin ningún tipo de compromiso.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-aura-bg border border-aura-border">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none">
+            <span class="font-serif text-xl text-aura-charcoal font-normal">¿Cómo garantizan que el resultado sea 100% natural y no artificial?</span>
+            <div class="w-7 h-7 border border-aura-border flex items-center justify-center text-aura-gold shrink-0 transition-transform faq-icon">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-aura-muted leading-relaxed font-light border-t border-aura-border/60 pt-4">
+            Nuestra premisa clínica se basa en la sobriedad y la armonía. No sobredimensionamos volúmenes. Trabajamos en planos anatómicos profundos con dosis moderadas y productos de la máxima pureza reológica (Juvederm Vycross, Teoxane, Radiesse), priorizando la estimulación de su propio colágeno.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-aura-bg border border-aura-border">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none">
+            <span class="font-serif text-xl text-aura-charcoal font-normal">¿Cómo funciona el protocolo de acceso discreto y confidencial?</span>
+            <div class="w-7 h-7 border border-aura-border flex items-center justify-center text-aura-gold shrink-0 transition-transform faq-icon">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-aura-muted leading-relaxed font-light border-t border-aura-border/60 pt-4">
+            Para aquellos pacientes con perfil público o que requieran total privacidad, coordinamos el acceso directo desde el parking subterráneo hasta una suite individual asignada. No es necesario pasar por la sala de espera general y la salida se realiza por un pasillo privado independiente.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-aura-bg border border-aura-border">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none">
+            <span class="font-serif text-xl text-aura-charcoal font-normal">¿Qué tiempo de recuperación requieren los tratamientos con láser CO2?</span>
+            <div class="w-7 h-7 border border-aura-border flex items-center justify-center text-aura-gold shrink-0 transition-transform faq-icon">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-aura-muted leading-relaxed font-light border-t border-aura-border/60 pt-4">
+            Gracias a la tecnología fraccionada de última generación y la aplicación concomitante de exosomas regenerativos, el enrojecimiento se reduce notablemente. Habitualmente se requiere un tiempo de recuperación social de tan solo 48 a 72 horas, pudiendo aplicar protección solar mineral a partir del segundo día.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 13. FOOTER CORPORATIVO & REGISTRO SANITARIO -->
+  <!-- ============================================================ -->
+  <footer class="bg-aura-dark text-aura-cream pt-16 pb-12 border-t border-aura-border/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-aura-cream/10">
+        
+        <!-- Col 1: Brand & Identity -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 border border-aura-gold flex items-center justify-center text-aura-gold">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <polygon points="12,2 22,12 12,22 2,12" stroke="currentColor"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <span class="block font-serif text-xl tracking-widest-plus text-aura-cream font-medium uppercase leading-none">AURA CLINIC</span>
+              <span class="block text-[8px] tracking-ultra text-aura-sand uppercase font-sans mt-0.5">Medicina Estética & Dermatología Avanzada</span>
+            </div>
+          </div>
+          <p class="text-xs text-aura-cream/70 leading-relaxed font-light max-w-sm">
+            Centro médico autorizado en la Comunidad de Madrid dedicado a la excelencia en medicina regenerativa facial, calidad cutánea y longevidad preventiva.
+          </p>
+          
+          <div class="pt-2 text-[11px] text-aura-sand space-y-1">
+            <span class="block font-semibold">Registro Sanitario Oficial: CS-10948/CAM</span>
+            <span class="block text-aura-cream/60">Acreditación de Calidad Sanitaria ISO 9001:2015</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Tratamientos -->
+        <div class="space-y-3">
+          <h4 class="text-xs uppercase tracking-widest font-semibold text-aura-gold">Especialidades</h4>
+          <ul class="space-y-2 text-xs text-aura-cream/70 font-light">
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Armonización Facial</a></li>
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Inductores de Colágeno</a></li>
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Láser CO2 Fraccionado</a></li>
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Morpheus8 & Radiofrecuencia</a></li>
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Remodelación Corporal</a></li>
+            <li><a href="#tratamientos" class="hover:text-aura-gold transition-colors">Sueroterapia & Longevidad</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Enlaces Clínicos -->
+        <div class="space-y-3">
+          <h4 class="text-xs uppercase tracking-widest font-semibold text-aura-gold">Clínica & Rigor</h4>
+          <ul class="space-y-2 text-xs text-aura-cream/70 font-light">
+            <li><a href="#filosofia" class="hover:text-aura-gold transition-colors">El Enfoque AURA</a></li>
+            <li><a href="#equipo" class="hover:text-aura-gold transition-colors">Cuadro Médico Colegiado</a></li>
+            <li><a href="#casos" class="hover:text-aura-gold transition-colors">Casos Clínicos Auditados</a></li>
+            <li><a href="#diagnostico" class="hover:text-aura-gold transition-colors">Test Diagnóstico Rápido</a></li>
+            <li><a href="#instalaciones" class="hover:text-aura-gold transition-colors">Protocolo Acceso VIP</a></li>
+            <li><a href="#reserva" class="hover:text-aura-gold transition-colors">Solicitar Cita Online</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contacto & Horarios -->
+        <div class="space-y-3">
+          <h4 class="text-xs uppercase tracking-widest font-semibold text-aura-gold">Atención al Paciente</h4>
+          <div class="space-y-2 text-xs text-aura-cream/70 font-light">
+            <p>Calle Serrano 45, Planta 2ª<br>28001 Barrio de Salamanca, Madrid</p>
+            <p class="pt-1">Tel: <a href="tel:+34910234567" class="text-aura-cream hover:text-aura-gold font-medium">+34 910 234 567</a></p>
+            <p>Email: <a href="mailto:concierge@auraclinic.es" class="text-aura-cream hover:text-aura-gold">concierge@auraclinic.es</a></p>
+            <p class="text-[11px] text-aura-sand pt-1">Lunes a Viernes: 09:30 - 20:30 h</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal Bottom Notice -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-aura-cream/50 font-light">
+        <p>
+          &copy; 2026 AURA Clinic Madrid S.L. Todos los derechos reservados. Centro Sanitario Homologado CS-10948.
+        </p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-aura-gold transition-colors">Aviso Legal Sanitario</a>
+          <a href="#" class="hover:text-aura-gold transition-colors">Política de Privacidad Médica (RGPD-S)</a>
+          <a href="#" class="hover:text-aura-gold transition-colors">Consentimiento Informado</a>
+          <a href="#" class="hover:text-aura-gold transition-colors">Cookies</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- 14. FLOATING CONCIERGE BUTTON (Acceso Rápido por WhatsApp) -->
+  <!-- ============================================================ -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <a 
+      href="https://wa.me/34910234567?text=Deseo%20solicitar%20informaci%C3%B3n%20para%20una%20primera%20consulta%20en%20AURA%20Clinic" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="group flex items-center gap-3 bg-aura-charcoal text-aura-cream border border-aura-gold px-4 py-3 shadow-modal hover:bg-aura-gold hover:text-aura-charcoal transition-all duration-300"
+      aria-label="Contactar con el servicio de Concierge Médico por WhatsApp"
+    >
+      <!-- SVG WhatsApp Pure Vector -->
+      <div class="w-5 h-5 flex items-center justify-center text-aura-gold group-hover:text-aura-charcoal transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 10-9-9c0 1.5.4 2.9 1.1 4.2L3 21l4.9-1.3c1.3.8 2.7 1.3 4.1 1.3z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 9.5c.3-.5.7-.6 1-.6s.6.3.8.7l.7 1.6c.2.4.1.8-.2 1.1l-.5.5c.4.8 1.1 1.5 1.9 1.9l.5-.5c.3-.3.7-.4 1.1-.2l1.6.7c.4.2.7.5.7.8s-.1.7-.6 1c-.5.4-1.2.6-1.8.5-2.2-.2-4.3-1.6-5.6-3.4-1-1.4-1.3-2.9-1.2-4.1.1-.7.4-1.3.9-1.5z" />
+        </svg>
+      </div>
+      <div class="hidden sm:block text-left pr-1">
+        <span class="block text-[10px] uppercase tracking-wider text-aura-gold group-hover:text-aura-charcoal font-semibold leading-none">Concierge VIP</span>
+        <span class="block text-xs font-medium mt-1">Citas Inmediatas</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: FICHA CLÍNICA DETALLADA DEL TRATAMIENTO -->
+  <!-- ============================================================ -->
+  <div id="treatment-modal" class="fixed inset-0 z-50 hidden modal-backdrop bg-aura-dark/70 flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-treatment-title">
+    <div class="bg-aura-bg border border-aura-gold max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-modal relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeTreatmentModal()" class="absolute top-6 right-6 p-2 text-aura-charcoal hover:text-aura-gold transition-colors" aria-label="Cerrar ficha médica">
+        <!-- SVG Close -->
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="space-y-6">
+        <div>
+          <span class="text-[10px] uppercase tracking-ultra text-aura-gold font-semibold block mb-1" id="modal-treatment-category">Medicina Facial</span>
+          <h3 class="font-serif text-3xl text-aura-charcoal font-normal" id="modal-treatment-title">Nombre del Tratamiento</h3>
+          <p class="text-xs text-aura-muted mt-1" id="modal-treatment-sub">Técnica médica aplicada bajo control ecográfico</p>
+        </div>
+
+        <div class="aspect-[16/8] overflow-hidden border border-aura-border">
+          <img id="modal-treatment-img" src="" alt="Tratamiento" class="w-full h-full object-cover">
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs uppercase tracking-widest font-semibold text-aura-charcoal">Indicaciones Médicas Principales</h4>
+          <p class="text-xs text-aura-muted leading-relaxed font-light" id="modal-treatment-indications">
+            Descripción de los candidatos ideales e indicaciones clínicas.
+          </p>
+        </div>
+
+        <!-- Protocol Steps -->
+        <div class="space-y-3 border-y border-aura-border py-4">
+          <h4 class="text-xs uppercase tracking-widest font-semibold text-aura-charcoal">Protocolo Clínico Paso a Paso</h4>
+          <div class="space-y-2 text-xs text-aura-muted" id="modal-treatment-protocol">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Specs summary grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-aura-cream p-4 border border-aura-border text-xs">
+          <div>
+            <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Duración:</span>
+            <span class="font-medium text-aura-charcoal" id="modal-treatment-duration">45 min</span>
+          </div>
+          <div>
+            <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Anestesia:</span>
+            <span class="font-medium text-aura-charcoal" id="modal-treatment-anesthesia">Tópica / Frío</span>
+          </div>
+          <div>
+            <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Recuperación:</span>
+            <span class="font-medium text-aura-charcoal" id="modal-treatment-downtime">Inmediata</span>
+          </div>
+          <div>
+            <span class="text-aura-muted block text-[10px] uppercase tracking-wider">Inversión:</span>
+            <span class="font-medium text-aura-charcoal" id="modal-treatment-price">Desde 450 €</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <button onclick="bookFromModal()" class="flex-1 bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2">
+            <!-- SVG Calendar -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            <span>Reservar Este Tratamiento</span>
+          </button>
+          <button onclick="closeTreatmentModal()" class="px-6 py-3.5 border border-aura-border text-xs uppercase tracking-widest text-aura-muted hover:text-aura-charcoal transition-colors">
+            Cerrar Ficha
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: CONFIRMACIÓN DE CITA MÉDICA -->
+  <!-- ============================================================ -->
+  <div id="booking-success-modal" class="fixed inset-0 z-50 hidden modal-backdrop bg-aura-dark/75 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-success-title">
+    <div class="bg-aura-bg border border-aura-gold max-w-lg w-full p-8 shadow-modal text-center space-y-6">
+      
+      <!-- Laurel / Check SVG Icon -->
+      <div class="w-16 h-16 mx-auto bg-aura-goldLight border border-aura-gold flex items-center justify-center text-aura-gold">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+        </svg>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Solicitud de Cita Confirmada</span>
+        <h3 class="font-serif text-3xl text-aura-charcoal font-normal" id="modal-success-title">Le Esperamos en Serrano 45</h3>
+        <p class="text-xs text-aura-muted leading-relaxed font-light">
+          Hemos recibido su petición clínica. Nuestro equipo de secretaría médica y concierge se pondrá en contacto para validar cualquier indicación previa.
+        </p>
+      </div>
+
+      <!-- Resumen de cita -->
+      <div class="bg-aura-cream p-5 border border-aura-border text-left text-xs space-y-2.5">
+        <div class="flex justify-between border-b border-aura-border/60 pb-2">
+          <span class="text-aura-muted uppercase tracking-wider text-[10px]">Localizador Clínico:</span>
+          <span class="font-mono font-semibold text-aura-charcoal text-sm" id="conf-locator">AUR-2026-8941</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-aura-muted">Servicio:</span>
+          <span class="font-medium text-aura-charcoal text-right" id="conf-treatment">Armonización Facial</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-aura-muted">Especialista:</span>
+          <span class="font-medium text-aura-charcoal" id="conf-doctor">Dr. Alejandro de la Vega</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-aura-muted">Fecha & Hora:</span>
+          <span class="font-medium text-aura-charcoal" id="conf-datetime">15 Octubre 2026 • 10:00 h</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-aura-muted">Protocolo Discreción:</span>
+          <span class="font-medium text-emerald-800" id="conf-discretion">Activado (Acceso VIP Directo)</span>
+        </div>
+      </div>
+
+      <!-- Acciones de confirmación -->
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <button onclick="downloadAppointmentReceipt()" class="flex-1 border border-aura-charcoal hover:bg-aura-sand text-aura-charcoal py-3 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2">
+          <!-- SVG Download -->
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span>Descargar Justificante</span>
+        </button>
+        <button onclick="closeSuccessModal()" class="flex-1 bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal py-3 text-xs uppercase tracking-widest font-semibold transition-colors">
+          Finalizar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT ES6+: LÓGICA INTERACTIVA COMPLETA -->
+  <!-- ============================================================ -->
+  <script>
+    /* ============================================================
+     * BASE DE DATOS MÉDICA DE TRATAMIENTOS
+     * ============================================================ */
+    const TREATMENTS_DATA = [
+      // CATEGORÍA: FACIAL
+      {
+        id: 'facial-1',
+        category: 'facial',
+        categoryName: 'Medicina Facial & Armonización',
+        title: 'Armonización Facial & Soporte con Ácido Hialurónico',
+        subtitle: 'Restauración tridimensional de soporte óseo y fisonomía',
+        image: 'https://images.unsplash.com/photo-1512290900672-1f5be63dc68c?auto=format&fit=crop&w=800&q=80',
+        technique: 'Cánula atraumática y aguja 30G bajo ecografía Doppler',
+        duration: '45 - 60 min',
+        recovery: 'Inmediata (Sin tiempo de baja)',
+        anesthesia: 'Tópica de alta eficacia y lidocaína incorporada',
+        price: 'Desde 450 € / vial',
+        indications: 'Pérdida de proyección en pómulos, surco nasogeniano marcado, retrusión de mentón o pérdida de tensión dérmica.',
+        protocol: [
+          'Fase 1: Mapeo ecográfico vascular en tiempo real.',
+          'Fase 2: Marcaje biomecánico de vectores tensores.',
+          'Fase 3: Infiltración de gel viscoelástico de alta cohesividad en plano supraperióstico.',
+          'Fase 4: Masaje de adaptación y pauta post-procedimiento.'
+        ]
+      },
+      {
+        id: 'facial-2',
+        category: 'facial',
+        categoryName: 'Medicina Facial & Armonización',
+        title: 'Bioestimulación de Colágeno con Hidroxiapatita Cálcica',
+        subtitle: 'Inducción de colágeno tipo I y III sin voluminización artificial',
+        image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+        technique: 'Microesferas de CaHA vehiculizadas en gel de carboximetilcelulosa',
+        duration: '40 min',
+        recovery: '12 - 24 horas',
+        anesthesia: 'Lidocaína en solución diluida',
+        price: 'Desde 520 €',
+        indications: 'Flacidez cutánea, piel apergaminada, falta de turgencia en mejillas y cuello.',
+        protocol: [
+          'Fase 1: Limpieza aséptica y diseño vectorial.',
+          'Fase 2: Distribución subdermal uniforme en abanico.',
+          'Fase 3: Activación biológica celular de la red de fibroblastos.',
+          'Fase 4: Seguimiento a los 90 días para valorar neocolagénesis.'
+        ]
+      },
+      {
+        id: 'facial-3',
+        category: 'facial',
+        categoryName: 'Medicina Facial & Armonización',
+        title: 'Neuromodulación Periorbital & Tercio Superior',
+        subtitle: 'Suavización de líneas dinámicas preservando la mímica natural',
+        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
+        technique: 'Microinyecciones intramusculares superficiales guiadas',
+        duration: '20 min',
+        recovery: 'Inmediata',
+        anesthesia: 'Crioterapia anestésica focal',
+        price: 'Desde 380 €',
+        indications: 'Arrugas en entrecejo, frente y patas de gallo; mirada con aspecto de fatiga crónica.',
+        protocol: [
+          'Fase 1: Evaluación de la contracción muscular en dinámico.',
+          'Fase 2: Selección de micro-dosis personalizadas (Baby Botox).',
+          'Fase 3: Infiltración de precisión en puntos diana.',
+          'Fase 4: Revisión facultativa y retoque a los 15 días incluido.'
+        ]
+      },
+
+      // CATEGORÍA: DERMATOLOGÍA LÁSER
+      {
+        id: 'derma-1',
+        category: 'dermatologia',
+        categoryName: 'Dermatología Láser & Calidad Dérmica',
+        title: 'Resurfacing Láser Fraccionado CO2 Ablativo',
+        subtitle: 'Vaporización microscópica y regeneración profunda de la matriz cutánea',
+        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+        technique: 'Láser CO2 10.600 nm en modo fraccional computarizado',
+        duration: '50 min',
+        recovery: '48 - 72 horas',
+        anesthesia: 'Tópica oclusiva 45 min previos',
+        price: 'Desde 650 €',
+        indications: 'Secuelas de acné, poros dilatados, elastosis solar, arrugas peribucales y queratosis.',
+        protocol: [
+          'Fase 1: Preparación cutánea con desengrasado médico.',
+          'Fase 2: Calibración de fluencia y densidad de microcolumnas térmicas.',
+          'Fase 3: Escaneo homogéneo de la superficie facial.',
+          'Fase 4: Aplicación inmediata de exosomas y máscara regeneradora fría.'
+        ]
+      },
+      {
+        id: 'derma-2',
+        category: 'dermatologia',
+        categoryName: 'Dermatología Láser & Calidad Dérmica',
+        title: 'Radiofrecuencia Fraccionada Morpheus8',
+        subtitle: 'Remodelación subdérmica del tejido adiposo y retracción profunda',
+        image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
+        technique: 'Microagujas revestidas de oro con emisión RF bipolar a 4mm',
+        duration: '60 min',
+        recovery: '24 - 48 horas',
+        anesthesia: 'Tópica potente',
+        price: 'Desde 590 €',
+        indications: 'Laxitud mandibular, papada leve, arrugas en acordeón y textura irregular.',
+        protocol: [
+          'Fase 1: Mapeo de profundidad por zonas (2mm a 4mm).',
+          'Fase 2: Disparo fraccionado secuencial subdérmico.',
+          'Fase 3: Coagulación controlada de grasa y tejido conectivo.',
+          'Fase 4: Serum descongestionante estéril con ácido hialurónico puro.'
+        ]
+      },
+
+      // CATEGORÍA: CORPORAL
+      {
+        id: 'corp-1',
+        category: 'corporal',
+        categoryName: 'Remodelación Corporal & Firmeza',
+        title: 'CoolSculpting Elite: Criolipólisis Médica',
+        subtitle: 'Eliminación no invasiva de adiposidad localizada mediante frío controlado',
+        image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+        technique: 'Aplicadores dobles de vacío con enfriamiento a -11ºC y sensor térmico',
+        duration: '35 - 70 min por ciclo',
+        recovery: 'Inmediata (Sin reposo)',
+        anesthesia: 'No requerida',
+        price: 'Desde 490 € / ciclo',
+        indications: 'Acúmulos grasos en flancos, abdomen, cartucheras y cara interna del muslo.',
+        protocol: [
+          'Fase 1: Medición de pliegue adiposo mediante ecografía corporal.',
+          'Fase 2: Colocación de membrana protectora térmica.',
+          'Fase 3: Ciclo de enfriamiento celular programado (apoptosis)',
+          'Fase 4: Masaje vibratorio inmediato para maximizar la eliminación metabólica.'
+        ]
+      },
+
+      // CATEGORÍA: LONGEVIDAD
+      {
+        id: 'long-1',
+        category: 'longevidad',
+        categoryName: 'Longevidad & Medicina Preventiva',
+        title: 'Protocolo Celular NAD+ & Sueroterapia Intravenosa',
+        subtitle: 'Optimización mitocondrial, reparación de ADN y vitalidad metabólica',
+        image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80',
+        technique: 'Perfusión endovenosa lenta de cofactores de alta pureza médica',
+        duration: '90 min',
+        recovery: 'Inmediata',
+        anesthesia: 'No aplicable',
+        price: 'Desde 390 €',
+        indications: 'Estrés oxidativo elevado, fatiga crónica celular, jet lag severo y prevención del envejecimiento tisular.',
+        protocol: [
+          'Fase 1: Panel analítico de biomarcadores y estrés celular previo.',
+          'Fase 2: Canalización en suite privada de reposo.',
+          'Fase 3: Infusión intravenosa de nicotinamida adenina dinucleótido (NAD+) y glutatión.',
+          'Fase 4: Pauta oral de micronutrición epigenética complementaria.'
+        ]
+      }
+    ];
+
+    /* ============================================================
+     * CASOS CLÍNICOS (ANTES / DESPUÉS)
+     * ============================================================ */
+    const CLINICAL_CASES = [
+      {
+        id: 'case-1',
+        reg: 'HISTORIAL MÉDICO #F-204',
+        title: 'Armonización Facial & Soporte Malar',
+        patient: 'Mujer, 44 años',
+        protocol: 'Ácido Hialurónico + Inductor Dérmico',
+        doctor: 'Dr. Alejandro de la Vega',
+        sessions: '1 Sesión médica + revisión a los 21 días',
+        recovery: 'Inmediato (Sin hematomas residuales)',
+        notes: '"El objetivo prioritario fue devolver la proyección al tercio medio sin añadir volumen innecesario en mejillas, restaurando la transición del surco nasogeniano con cánula atraumática bajo control ecográfico."',
+        beforeImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80',
+        afterImg: 'https://images.unsplash.com/photo-1512290900672-1f5be63dc68c?auto=format&fit=crop&w=1200&q=80'
+      },
+      {
+        id: 'case-2',
+        reg: 'HISTORIAL MÉDICO #D-812',
+        title: 'Resurfacing Láser Fraccionado CO2',
+        patient: 'Hombre, 51 años',
+        protocol: 'Láser CO2 Fraccionado + Exosomas Tópicos',
+        doctor: 'Dra. Sofía Valenzuela',
+        sessions: '1 Sesión médica profunda',
+        recovery: '72 horas de eritema leve controlado',
+        notes: '"Paciente con secuelas atróficas y elastosis solar marcada. Se calibró el láser con pulsos de 120 micras en epidermis y dermis papilar, logrando un tensado significativo y cierre evidente del poro."',
+        beforeImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
+        afterImg: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80'
+      },
+      {
+        id: 'case-3',
+        reg: 'HISTORIAL MÉDICO #M-309',
+        title: 'Definición de Mandíbula y Cuello',
+        patient: 'Mujer, 38 años',
+        protocol: 'Morpheus8 + Marcaje Ángulo Mandibular',
+        doctor: 'Dr. Alejandro de la Vega',
+        sessions: '2 Sesiones espaciadas 4 semanas',
+        recovery: '24 horas',
+        notes: '"Abordaje no quirúrgico de la pérdida de nitidez en la línea mandibular. La combinación de radiofrecuencia con microagujas compactó la grasa submentoniana respetando la anatomía femenina."',
+        beforeImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
+        afterImg: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80'
+      }
+    ];
+
+    /* ============================================================
+     * INICIALIZACIÓN DE LA APLICACIÓN
+     * ============================================================ */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTreatments('facial');
+      initBeforeAfterSlider();
+      initCalendar(10, 2026); // Octubre 2026
+      initMobileNav();
+    });
+
+    /* ============================================================
+     * RENDERIZADO DE TRATAMIENTOS CON FILTRO
+     * ============================================================ */
+    function renderTreatments(category) {
+      const grid = document.getElementById('treatments-grid');
+      const filtered = category === 'all' 
+        ? TREATMENTS_DATA 
+        : TREATMENTS_DATA.filter(t => t.category === category);
+
+      grid.innerHTML = filtered.map(t => `
+        <article class="bg-aura-cream border border-aura-border group hover:border-aura-gold transition-all duration-300 flex flex-col justify-between shadow-sm hover:shadow-aura">
+          <div>
+            <div class="aspect-[16/10] overflow-hidden relative">
+              <img 
+                src="${t.image}" 
+                alt="${t.title}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter saturate-[0.95]"
+              >
+              <div class="absolute top-3 left-3 bg-aura-dark/85 text-aura-cream text-[9px] tracking-widest uppercase px-2.5 py-1 border border-aura-gold/40">
+                ${t.categoryName}
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div>
+                <h3 class="font-serif text-2xl text-aura-charcoal font-normal leading-snug group-hover:text-aura-bronze transition-colors">
+                  ${t.title}
+                </h3>
+                <p class="text-xs text-aura-muted mt-1.5 font-light leading-relaxed">
+                  ${t.subtitle}
+                </p>
+              </div>
+
+              <!-- Metadata Specs -->
+              <div class="space-y-2 pt-3 border-t border-aura-border/70 text-xs">
+                <div class="flex justify-between">
+                  <span class="text-aura-muted uppercase tracking-wider text-[10px]">Técnica:</span>
+                  <span class="font-medium text-aura-charcoal text-right truncate max-w-[60%]">${t.technique}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-aura-muted uppercase tracking-wider text-[10px]">Duración:</span>
+                  <span class="font-medium text-aura-charcoal">${t.duration}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-aura-muted uppercase tracking-wider text-[10px]">Recuperación:</span>
+                  <span class="font-medium text-emerald-800">${t.recovery}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 border-t border-aura-border/40 mt-4 flex items-center justify-between">
+            <span class="font-serif text-base text-aura-charcoal font-medium">${t.price}</span>
+            <button 
+              onclick="openTreatmentModal('${t.id}')"
+              class="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-aura-charcoal hover:text-aura-gold transition-colors"
+            >
+              <span>Ver Ficha Médica</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterTreatments(cat, btn) {
+      document.querySelectorAll('.treatment-tab').forEach(b => {
+        b.classList.remove('bg-aura-charcoal', 'text-aura-cream', 'border-aura-charcoal');
+        b.classList.add('bg-transparent', 'text-aura-muted', 'border-transparent');
+      });
+      btn.classList.add('bg-aura-charcoal', 'text-aura-cream', 'border-aura-charcoal');
+      btn.classList.remove('bg-transparent', 'text-aura-muted', 'border-transparent');
+      renderTreatments(cat);
+    }
+
+    /* ============================================================
+     * MODAL DE TRATAMIENTO
+     * ============================================================ */
+    let currentModalTreatment = null;
+
+    function openTreatmentModal(id) {
+      const treatment = TREATMENTS_DATA.find(t => t.id === id);
+      if (!treatment) return;
+      currentModalTreatment = treatment;
+
+      document.getElementById('modal-treatment-category').innerText = treatment.categoryName;
+      document.getElementById('modal-treatment-title').innerText = treatment.title;
+      document.getElementById('modal-treatment-sub').innerText = treatment.subtitle;
+      document.getElementById('modal-treatment-img').src = treatment.image;
+      document.getElementById('modal-treatment-indications').innerText = treatment.indications;
+      document.getElementById('modal-treatment-duration').innerText = treatment.duration;
+      document.getElementById('modal-treatment-anesthesia').innerText = treatment.anesthesia;
+      document.getElementById('modal-treatment-downtime').innerText = treatment.recovery;
+      document.getElementById('modal-treatment-price').innerText = treatment.price;
+
+      const protocolContainer = document.getElementById('modal-treatment-protocol');
+      protocolContainer.innerHTML = treatment.protocol.map(p => `
+        <div class="flex items-start gap-2">
+          <svg class="w-3.5 h-3.5 text-aura-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          <span>${p}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('treatment-modal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeTreatmentModal() {
+      document.getElementById('treatment-modal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function bookFromModal() {
+      closeTreatmentModal();
+      if (currentModalTreatment) {
+        const select = document.getElementById('book-treatment');
+        // Match option with title
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.includes(currentModalTreatment.title.substring(0, 20))) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ============================================================
+     * SLIDER INTERACTIVO ANTES / DESPUÉS
+     * ============================================================ */
+    let isDragging = false;
+
+    function initBeforeAfterSlider() {
+      const container = document.getElementById('ba-container');
+      const handle = document.getElementById('ba-handle');
+      const beforeWrapper = document.getElementById('ba-before-wrapper');
+      const range = document.getElementById('ba-range');
+
+      function updateSlider(percent) {
+        if (percent < 0) percent = 0;
+        if (percent > 100) percent = 100;
+        beforeWrapper.style.width = percent + '%';
+        handle.style.left = percent + '%';
+        range.value = percent;
+      }
+
+      function handleMove(e) {
+        if (!isDragging) return;
+        const rect = container.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const offset = clientX - rect.left;
+        const percent = (offset / rect.width) * 100;
+        updateSlider(percent);
+      }
+
+      function startDrag(e) {
+        isDragging = true;
+        handleMove(e);
+      }
+
+      function stopDrag() {
+        isDragging = false;
+      }
+
+      // Mouse events
+      container.addEventListener('mousedown', startDrag);
+      window.addEventListener('mousemove', handleMove);
+      window.addEventListener('mouseup', stopDrag);
+
+      // Touch events for mobile responsiveness
+      container.addEventListener('touchstart', startDrag, { passive: true });
+      window.addEventListener('touchmove', handleMove, { passive: true });
+      window.addEventListener('touchend', stopDrag);
+
+      // Accessible Range Input
+      range.addEventListener('input', (e) => {
+        updateSlider(e.target.value);
+      });
+    }
+
+    function switchCase(index, btn) {
+      document.querySelectorAll('.case-btn').forEach(b => {
+        b.classList.remove('bg-aura-charcoal', 'text-aura-cream');
+        b.classList.add('bg-aura-bg', 'text-aura-muted');
+      });
+      btn.classList.add('bg-aura-charcoal', 'text-aura-cream');
+      btn.classList.remove('bg-aura-bg', 'text-aura-muted');
+
+      const data = CLINICAL_CASES[index];
+      if (!data) return;
+
+      document.getElementById('ba-before-img').src = data.beforeImg;
+      document.getElementById('ba-after-img').src = data.afterImg;
+      document.getElementById('case-reg').innerText = data.reg;
+      document.getElementById('case-title').innerText = data.title;
+      document.getElementById('case-patient').innerText = data.patient;
+      document.getElementById('case-protocol').innerText = data.protocol;
+      document.getElementById('case-doctor').innerText = data.doctor;
+      document.getElementById('case-sessions').innerText = data.sessions;
+      document.getElementById('case-recovery').innerText = data.recovery;
+      document.getElementById('case-notes').innerText = data.notes;
+    }
+
+    function prefillBookingFromCase() {
+      const caseTitle = document.getElementById('case-title').innerText;
+      const select = document.getElementById('book-treatment');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(caseTitle.toLowerCase().substring(0, 15))) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+      document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ============================================================
+     * TEST DE DIAGNÓSTICO RÁPIDO
+     * ============================================================ */
+    const quizState = {
+      step: 1,
+      q1: null,
+      q2: null,
+      q3: null
+    };
+
+    function selectQuizOption(step, value, btn) {
+      quizState['q' + step] = value;
+
+      // Update progress
+      if (step === 1) {
+        document.getElementById('quiz-step-1').classList.add('hidden');
+        document.getElementById('quiz-step-2').classList.remove('hidden');
+        document.getElementById('quiz-step-label').innerText = 'Paso 2 de 3: Objetivo clínico';
+        document.getElementById('quiz-step-percent').innerText = '66%';
+        document.getElementById('quiz-progress-bar').style.width = '66%';
+      } else if (step === 2) {
+        document.getElementById('quiz-step-2').classList.add('hidden');
+        document.getElementById('quiz-step-3').classList.remove('hidden');
+        document.getElementById('quiz-step-label').innerText = 'Paso 3 de 3: Rango de edad';
+        document.getElementById('quiz-step-percent').innerText = '99%';
+        document.getElementById('quiz-progress-bar').style.width = '99%';
+      } else if (step === 3) {
+        calculateQuizResult();
+      }
+    }
+
+    function prevQuizStep(targetStep) {
+      if (targetStep === 1) {
+        document.getElementById('quiz-step-2').classList.add('hidden');
+        document.getElementById('quiz-step-1').classList.remove('hidden');
+        document.getElementById('quiz-step-label').innerText = 'Paso 1 de 3: Área prioritaria';
+        document.getElementById('quiz-step-percent').innerText = '33%';
+        document.getElementById('quiz-progress-bar').style.width = '33%';
+      } else if (targetStep === 2) {
+        document.getElementById('quiz-step-3').classList.add('hidden');
+        document.getElementById('quiz-step-2').classList.remove('hidden');
+        document.getElementById('quiz-step-label').innerText = 'Paso 2 de 3: Objetivo clínico';
+        document.getElementById('quiz-step-percent').innerText = '66%';
+        document.getElementById('quiz-progress-bar').style.width = '66%';
+      }
+    }
+
+    function calculateQuizResult() {
+      document.getElementById('quiz-step-3').classList.add('hidden');
+      document.getElementById('quiz-step-result').classList.remove('hidden');
+      document.getElementById('quiz-step-label').innerText = 'Diagnóstico Completado';
+      document.getElementById('quiz-step-percent').innerText = '100%';
+      document.getElementById('quiz-progress-bar').style.width = '100%';
+
+      const titleEl = document.getElementById('quiz-result-title');
+      const descEl = document.getElementById('quiz-result-desc');
+      const docEl = document.getElementById('quiz-result-doctor');
+      const sessEl = document.getElementById('quiz-result-sessions');
+      const priceEl = document.getElementById('quiz-result-price');
+
+      if (quizState.q1 === 'facial_flacidez' || quizState.q3 === '46-55' || quizState.q3 === '55+') {
+        titleEl.innerText = 'Protocolo AURA Full-Face & Soporte Dérmico';
+        descEl.innerText = 'Se prescribe una combinación estratégica de hidroxiapatita cálcica (Radiesse) para restaurar los vectores de tensión natural, complementada con ecografía cutánea previa para máxima seguridad.';
+        docEl.innerText = 'Dr. Alejandro de la Vega';
+        sessEl.innerText = '1 sesión principal + revisión a los 30 días';
+        priceEl.innerText = 'Desde 520 €';
+      } else if (quizState.q1 === 'piel_textura' || quizState.q2 === 'regeneracion_profunda') {
+        titleEl.innerText = 'Protocolo Láser CO2 Fraccionado & Exosomas Dérmicos';
+        descEl.innerText = 'Indicado para renovación epidérmica intensiva, homogeneización del tono, atenuación de manchas y cierre de poros con mínimo tiempo de recuperación.';
+        docEl.innerText = 'Dra. Sofía Valenzuela';
+        sessEl.innerText = '1 a 2 sesiones anuales';
+        priceEl.innerText = 'Desde 650 €';
+      } else if (quizState.q1 === 'longevidad_cuerpo') {
+        titleEl.innerText = 'Protocolo Celular Vitality & Sueroterapia NAD+';
+        descEl.innerText = 'Reactivación mitocondrial celular, eliminación de toxinas metabólicas y fortalecimiento inmunitario mediante infusión intravenosa personalizada.';
+        docEl.innerText = 'Dra. Carmen Montero';
+        sessEl.innerText = 'Pauta de 3 sesiones bimestrales';
+        priceEl.innerText = 'Desde 390 €';
+      } else {
+        titleEl.innerText = 'Protocolo AURA Glow & Neuromodulación Periorbital';
+        descEl.innerText = 'Atenuación suave de líneas de expresión con efecto descanso y micropunciones de ácido hialurónico no reticulado para una luminosidad inmediata.';
+        docEl.innerText = 'Dr. Alejandro de la Vega';
+        sessEl.innerText = '1 sesión semestral';
+        priceEl.innerText = 'Desde 380 €';
+      }
+    }
+
+    function resetQuiz() {
+      quizState.step = 1;
+      quizState.q1 = null;
+      quizState.q2 = null;
+      quizState.q3 = null;
+      document.getElementById('quiz-step-result').classList.add('hidden');
+      document.getElementById('quiz-step-1').classList.remove('hidden');
+      document.getElementById('quiz-step-label').innerText = 'Paso 1 de 3: Área prioritaria';
+      document.getElementById('quiz-step-percent').innerText = '33%';
+      document.getElementById('quiz-progress-bar').style.width = '33%';
+    }
+
+    function applyQuizToBooking() {
+      const recommendedTitle = document.getElementById('quiz-result-title').innerText;
+      const select = document.getElementById('book-treatment');
+      
+      if (recommendedTitle.includes('Full-Face')) {
+        select.value = 'Bioestimulación de Colágeno Radiesse';
+      } else if (recommendedTitle.includes('Láser')) {
+        select.value = 'Resurfacing Láser Fraccionado CO2';
+      } else if (recommendedTitle.includes('Celular')) {
+        select.value = 'Terapia de Longevidad IV Drips y Exosomas';
+      } else {
+        select.value = 'Armonización Facial con Ácido Hialurónico';
+      }
+
+      document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* ============================================================
+     * BOOKING WIZARD EN 3 PASOS
+     * ============================================================ */
+    let bookingData = {
+      step: 1,
+      treatment: 'Armonización Facial con Ácido Hialurónico',
+      doctor: 'Dr. Alejandro de la Vega',
+      day: 15,
+      month: 'Octubre 2026',
+      time: '10:00 h'
+    };
+
+    function goToBookingStep(step) {
+      bookingData.step = step;
+      document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('booking-step-' + step).classList.remove('hidden');
+
+      // Update indicator styles
+      for (let i = 1; i <= 3; i++) {
+        const ind = document.getElementById('step-ind-' + i);
+        const span = ind.querySelector('span:first-child');
+        if (i === step) {
+          ind.classList.remove('opacity-50');
+          span.className = 'w-7 h-7 rounded-full bg-aura-charcoal text-aura-cream text-xs flex items-center justify-center font-semibold';
+        } else if (i < step) {
+          ind.classList.remove('opacity-50');
+          span.className = 'w-7 h-7 rounded-full bg-aura-gold text-aura-dark text-xs flex items-center justify-center font-semibold';
+        } else {
+          ind.classList.add('opacity-50');
+          span.className = 'w-7 h-7 rounded-full bg-aura-sand text-aura-charcoal text-xs flex items-center justify-center font-semibold';
+        }
+      }
+    }
+
+    function initCalendar(monthNum, year) {
+      const grid = document.getElementById('cal-days-grid');
+      grid.innerHTML = '';
+      
+      // Dummy calendar for demonstration: month starting on Thursday (4)
+      const startDay = 3; // Wednesday
+      const totalDays = 31;
+
+      // Empty lead days
+      for (let i = 0; i < startDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'py-2 text-aura-border pointer-events-none';
+        grid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= totalDays; day++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `cal-day-cell py-2 text-xs border border-transparent transition-all ${
+          day === 15 
+            ? 'bg-aura-charcoal text-aura-cream font-semibold' 
+            : day % 7 === 0 
+              ? 'text-aura-subtle cursor-not-allowed opacity-40' 
+              : 'hover:border-aura-gold hover:bg-aura-cream text-aura-charcoal'
+        }`;
+        btn.innerText = day;
+
+        if (day % 7 !== 0) {
+          btn.onclick = () => selectCalDay(day, btn);
+        } else {
+          btn.disabled = true;
+        }
+
+        grid.appendChild(btn);
+      }
+    }
+
+    function selectCalDay(day, btn) {
+      document.querySelectorAll('.cal-day-cell').forEach(c => {
+        c.classList.remove('bg-aura-charcoal', 'text-aura-cream', 'font-semibold');
+        if (!c.disabled) {
+          c.classList.add('text-aura-charcoal');
+        }
+      });
+      btn.classList.add('bg-aura-charcoal', 'text-aura-cream', 'font-semibold');
+      btn.classList.remove('text-aura-charcoal');
+
+      bookingData.day = day;
+      document.getElementById('selected-date-label').innerText = 'Día ' + day;
+      document.getElementById('summary-date').innerText = `Día ${day} de Octubre 2026`;
+    }
+
+    function selectTimeSlot(timeStr, btn) {
+      document.querySelectorAll('.time-slot-btn').forEach(b => {
+        b.classList.remove('bg-aura-charcoal', 'text-aura-cream', 'border-aura-charcoal');
+        b.classList.add('bg-aura-bg', 'text-aura-charcoal', 'border-aura-border');
+      });
+      btn.classList.add('bg-aura-charcoal', 'text-aura-cream', 'border-aura-charcoal');
+      btn.classList.remove('bg-aura-bg', 'text-aura-charcoal', 'border-aura-border');
+
+      bookingData.time = timeStr;
+      document.getElementById('summary-time').innerText = timeStr;
+    }
+
+    function changeCalMonth(dir) {
+      // Toggle for visual experience
+      const title = document.getElementById('cal-month-title');
+      if (dir > 0) {
+        title.innerText = 'Noviembre 2026';
+        bookingData.month = 'Noviembre 2026';
+      } else {
+        title.innerText = 'Octubre 2026';
+        bookingData.month = 'Octubre 2026';
+      }
+      initCalendar(10, 2026);
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('patient-name').value;
+      const phone = document.getElementById('patient-phone').value;
+      const email = document.getElementById('patient-email').value;
+      const isVip = document.getElementById('vip-discretion').checked;
+      const treatment = document.getElementById('book-treatment').value;
+      const doctor = document.getElementById('book-doctor').value;
+
+      // Random official locator code
+      const randomCode = 'AUR-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('conf-locator').innerText = randomCode;
+      document.getElementById('conf-treatment').innerText = treatment;
+      document.getElementById('conf-doctor').innerText = doctor;
+      document.getElementById('conf-datetime').innerText = `${bookingData.day} ${bookingData.month} • ${bookingData.time}`;
+      document.getElementById('conf-discretion').innerText = isVip 
+        ? 'Activado (Acceso VIP Directo desde Parking)' 
+        : 'Recepción Estándar Calle Serrano';
+
+      document.getElementById('booking-success-modal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('booking-success-modal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      goToBookingStep(1);
+    }
+
+    function downloadAppointmentReceipt() {
+      const locator = document.getElementById('conf-locator').innerText;
+      const treatment = document.getElementById('conf-treatment').innerText;
+      const doctor = document.getElementById('conf-doctor').innerText;
+      const datetime = document.getElementById('conf-datetime').innerText;
+      
+      const receiptText = `=====================================================
+AURA CLINIC MADRID - JUSTIFICANTE OFICIAL DE CITA
+Registro Sanitario CAM: CS-10948/CAM
+Calle Serrano 45, Planta 2ª, Barrio de Salamanca, Madrid
+=====================================================
+Localizador: ${locator}
+Servicio Médico: ${treatment}
+Facultativo: ${doctor}
+Fecha y Hora: ${datetime}
+Acceso: Plaza de Parking Serrano 45 (Reservada)
+Teléfono de Concierge: +34 910 234 567
+=====================================================
+Presente este comprobante digital o físico a su llegada.`;
+
+      const blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `AURA-Clinic-Cita-${locator}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    /* ============================================================
+     * FAQ ACCORDION
+     * ============================================================ */
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all others
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => {
+        i.style.transform = 'rotate(0deg)';
+      });
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(45deg)';
+      }
+    }
+
+    /* ============================================================
+     * MENÚ MÓVIL & HEADER
+     * ============================================================ */
+    function initMobileNav() {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      });
+    }
+
+    function toggleLanguageNotice() {
+      alert("AURA Clinic: English concierge assistance is available via phone and WhatsApp at +34 910 234 567.");
+    }
+  </script>
+</body>
+</html>

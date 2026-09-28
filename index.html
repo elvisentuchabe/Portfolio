@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vicente — Diseñador web freelance. Experiencias digitales de alto impacto." />
+  <meta property="og:title" content="Vicente · Diseñador Web Freelance" />
+  <meta property="og:description" content="Diseño web. Sin compromisos." />
+  <meta property="og:type" content="website" />
+  <title>Vicente · Diseñador Web</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config override (custom colors, fonts) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: "#c9a84c",
+              light: "#e8c97a",
+              dim: "rgba(201,168,76,0.15)",
+            },
+            surface: {
+              DEFAULT: "#111111",
+              2: "#1a1a1a",
+            },
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- React 18 via CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel Standalone (JSX transpiler) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Data -->
+  <script src="js/projects.js"></script>
+</head>
+<body class="bg-[#0a0a0a] text-[#e5e5e5] font-sans">
+
+  <!-- ── Custom cursor ── -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── React mount point ── -->
+  <div id="root"></div>
+
+  <!-- ══════════════════════════════════════════════
+       REACT COMPONENTS — inlined via Babel
+  ═══════════════════════════════════════════════ -->
+  <script type="text/babel" data-type="module">
+
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    /* ─────────────────────────────────────────────
+       HOOK: useIntersectionObserver
+       Triggers .visible class for scroll reveals
+    ───────────────────────────────────────────── */
+    function useRevealOnScroll() {
+      useEffect(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+        const targets = document.querySelectorAll(".reveal");
+        targets.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+      }, []);
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: Header
+    ───────────────────────────────────────────── */
+    function Header({ owner }) {
+      const [scrolled, setScrolled] = useState(false);
+      const [menuOpen, setMenuOpen] = useState(false);
+
+      useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+
+      const navItems = [
+        { label: "Proyectos", href: "#projects" },
+        { label: "Servicios", href: "#services" },
+        { label: "Contacto",  href: "#contact" },
+      ];
+
+      const scrollTo = (e, href) => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+        setMenuOpen(false);
+      };
+
+      return (
+        <header
+          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+            scrolled
+              ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-[#1a1a1a]"
+              : "bg-transparent"
+          }`}
+        >
+          <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            {/* Logo */}
+            <a
+              href="#"
+              onClick={(e) => scrollTo(e, "#root")}
+              className="flex items-center gap-3 group"
+              style={{ cursor: "none" }}
+            >
+              <span
+                className="text-xl font-black tracking-tight text-gold-gradient"
+                style={{ fontVariantLigatures: "none" }}
+              >
+                V.
+              </span>
+              <span className="hidden sm:block text-[12px] font-medium text-[#777] tracking-[0.12em] uppercase transition-colors duration-300 group-hover:text-white">
+                {owner.firstName || "Vicente"} <span className="text-gold font-bold">{owner.lastName || "Romero"}</span>
+              </span>
+            </a>
+
+            {/* Desktop nav */}
+            <ul className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} onClick={(e) => scrollTo(e, item.href)} className="nav-link">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Availability pill */}
+            <a
+              href="#contact"
+              onClick={(e) => scrollTo(e, "#contact")}
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-semibold tracking-wider uppercase text-[#888] border border-[#222] hover:border-[#333] hover:text-[#aaa] transition-all duration-300"
+              style={{ cursor: "none" }}
+            >
+              <span className="availability-dot"></span>
+              Disponible
+            </a>
+
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex flex-col gap-[5px] p-2"
+              style={{ cursor: "none" }}
+              aria-label="Abrir menú"
+            >
+              <span className={`block w-5 h-[1.5px] bg-[#888] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+              <span className={`block w-5 h-[1.5px] bg-[#888] transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-[1.5px] bg-[#888] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+            </button>
+          </nav>
+
+          {/* Mobile menu */}
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-400 ${
+              menuOpen ? "max-h-60" : "max-h-0"
+            } bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#1a1a1a]`}
+          >
+            <ul className="px-6 py-4 flex flex-col gap-4">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => scrollTo(e, item.href)}
+                    className="block text-sm font-medium text-[#888] hover:text-white transition-colors duration-300 py-1"
+                    style={{ cursor: "none" }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <span className="flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase text-[#555]">
+                  <span className="availability-dot"></span>
+                  Disponible para proyectos
+                </span>
+              </li>
+            </ul>
+          </div>
+        </header>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: HeroSection
+    ───────────────────────────────────────────── */
+    function HeroSection({ owner, isFirstVisit }) {
+      const scrollToProjects = (e) => {
+        e.preventDefault();
+        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+      };
+
+      const cls = (base, animClass) =>
+        isFirstVisit ? `${base} ${animClass}` : base;
+
+      return (
+        <section
+          id="hero"
+          className="hero-bg-gradient grid-lines relative min-h-screen flex flex-col justify-center px-6 pt-16 overflow-hidden"
+        >
+          {/* Decorative orb */}
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{
+              width: "600px",
+              height: "600px",
+              background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%)",
+              filter: "blur(40px)",
+            }}
+          />
+
+          <div className="max-w-6xl mx-auto w-full relative z-10">
+            {/* Eyebrow */}
+            <div className={cls("flex items-center gap-3 mb-8", "animate-slide-left animate-delay-200")}>
+              <span className="h-[1px] w-8 bg-gold opacity-70" />
+              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666]">
+                Diseñador Web Freelance
+              </span>
+            </div>
+
+            {/* Hero name */}
+            <h1 className={cls("", "animate-fade-up animate-delay-400")}>
+              <span className="block font-black leading-none tracking-[-0.04em] text-white"
+                style={{ fontSize: "clamp(3.5rem, 12vw, 9rem)" }}>
+                {owner.firstName || "Vicente"}
+              </span>
+              <span
+                className="block font-black leading-none tracking-[-0.04em] text-gold-gradient cursor-blink"
+                style={{ fontSize: "clamp(3.5rem, 12vw, 9rem)" }}
+              >
+                {(owner.lastName || "Romero") + "."}
+              </span>
+            </h1>
+
+            {/* Separator */}
+            <div className={cls("my-8 md:my-10", "animate-fade-in animate-delay-600")}>
+              <span className="gold-line block w-24 opacity-40" />
+            </div>
+
+            {/* Tagline */}
+            <div className={cls("max-w-xl", "animate-fade-up animate-delay-800")}>
+              <p className="text-2xl md:text-3xl font-light text-white/90 leading-snug tracking-tight mb-4">
+                {owner.tagline}
+              </p>
+              <p className="text-base text-[#666] leading-relaxed font-light">
+                {owner.subTagline}
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className={cls("flex flex-wrap gap-4 mt-10", "animate-fade-up animate-delay-1000")}>
+              <a href="#projects" onClick={scrollToProjects} className="btn-primary">
+                Ver proyectos
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }} className="btn-outline">
+                Hablemos
+              </a>
+            </div>
+
+            {/* Stats row */}
+            <div className={cls("flex flex-wrap gap-10 mt-16 pt-10 border-t border-[#1a1a1a]", "animate-fade-in animate-delay-1200")}>
+              {[
+                { value: "3+", label: "Años de experiencia" },
+                { value: "20+", label: "Proyectos entregados" },
+                { value: "100%", label: "Clientes satisfechos" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="stat-number text-gold-gradient">{stat.value}</div>
+                  <div className="text-xs text-[#555] font-medium tracking-wider uppercase mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Scroll hint */}
+          <div className={cls(
+            "absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40",
+            "animate-fade-in animate-delay-1200"
+          )}>
+            <span className="text-[10px] tracking-[0.2em] uppercase text-[#555]">Scroll</span>
+            <div className="w-[1px] h-10 bg-gradient-to-b from-[#555] to-transparent" />
+          </div>
+        </section>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: ProjectCard
+    ───────────────────────────────────────────── */
+    function ProjectCard({ project, index }) {
+      return (
+        <article className={`card-glow p-7 md:p-8 reveal reveal-delay-${index + 1} flex flex-col gap-6 h-full`}>
+
+          {/* Top row */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-center gap-3">
+              {/* Number */}
+              <span className="text-[11px] font-bold tracking-[0.15em] text-[#333]">
+                {String(project.id).padStart(2, "0")}
+              </span>
+              <span className="h-[1px] w-4 bg-[#333]" />
+              <span className="text-[11px] font-medium text-[#444] tracking-wider uppercase">
+                {project.category}
+              </span>
+            </div>
+            {/* Status */}
+            {project.status === "live"
+              ? <span className="status-live">Live</span>
+              : <span className="status-soon">Pronto</span>
+            }
+          </div>
+
+          {/* Project name */}
+          <div className="flex-1">
+            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-tight mb-3">
+              {project.name}
+            </h3>
+            <p className="text-sm text-[#666] leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          {/* Tech badges */}
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <span key={tech} className="tech-badge">{tech}</span>
+            ))}
+          </div>
+
+          {/* Footer row */}
+          <div className="flex items-center justify-between pt-4 border-t border-[#1a1a1a]">
+            <span className="text-[11px] text-[#444] font-medium tracking-wider">{project.year}</span>
+            <a
+              href={project.url}
+              target={project.url !== '#' ? '_blank' : '_self'}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[12px] font-semibold text-gold tracking-wider uppercase transition-all duration-300 hover:gap-3"
+              style={{ cursor: "none" }}
+            >
+              Ver proyecto
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: ProjectsGrid
+    ───────────────────────────────────────────── */
+    function ProjectsGrid({ projects }) {
+      return (
+        <section id="projects" className="py-24 md:py-32 px-6 relative">
+          <div className="max-w-6xl mx-auto">
+
+            {/* Section header */}
+            <div className="reveal mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-[1px] w-8 bg-gold opacity-70" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#555]">
+                  Trabajo selecto
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+                Proyectos<br />
+                <span className="text-gold-gradient">destacados.</span>
+              </h2>
+            </div>
+
+            {/* Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {projects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="reveal reveal-delay-4 mt-14 flex justify-center">
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                className="text-sm font-medium text-[#555] hover:text-gold transition-colors duration-300 flex items-center gap-2 border-b border-[#222] hover:border-gold pb-1"
+                style={{ cursor: "none" }}
+              >
+                ¿Tienes un proyecto en mente? Hablemos
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: ServicesSection
+    ───────────────────────────────────────────── */
+    function ServicesSection() {
+      const services = [
+        {
+          icon: "✦",
+          title: "Diseño UI/UX",
+          description: "Interfaces que equilibran estética y funcionalidad. Cada decisión visual tiene un porqué.",
+        },
+        {
+          icon: "◈",
+          title: "Desarrollo Web",
+          description: "Implementación con código limpio, rendimiento óptimo y atención al detalle que marca la diferencia.",
+        },
+        {
+          icon: "⬡",
+          title: "Identidad Digital",
+          description: "Sistemas visuales coherentes que comunican los valores de tu marca con precisión y carácter.",
+        },
+      ];
+
+      return (
+        <section id="services" className="py-24 md:py-32 px-6 bg-[#080808] relative">
+          {/* Subtle top border */}
+          <div className="absolute top-0 left-0 right-0">
+            <span className="gold-line block opacity-20" />
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="reveal mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-[1px] w-8 bg-gold opacity-70" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#555]">
+                  Lo que hago
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+                Servicios.
+              </h2>
+            </div>
+
+            {/* Services list */}
+            <div className="space-y-0 divide-y divide-[#111]">
+              {services.map((service, i) => (
+                <div
+                  key={service.title}
+                  className={`reveal reveal-delay-${i + 1} group flex flex-col md:flex-row md:items-center gap-4 md:gap-10 py-10 cursor-default transition-all duration-300`}
+                >
+                  <span className="text-2xl text-gold opacity-60 group-hover:opacity-100 transition-opacity duration-300 w-8 flex-shrink-0">
+                    {service.icon}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-bold text-white md:w-56 flex-shrink-0 group-hover:text-gold-light transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#555] text-sm leading-relaxed flex-1 group-hover:text-[#777] transition-colors duration-300">
+                    {service.description}
+                  </p>
+                  <svg className="hidden md:block text-[#222] group-hover:text-gold transition-colors duration-300 flex-shrink-0" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              ))}
+            </div>
+
+            {/* Marquee strip */}
+            <div className="mt-20 overflow-hidden py-4 border-y border-[#111]">
+              <div className="marquee-track">
+                {[
+                  "HTML", "CSS", "Tailwind CSS", "React", "JavaScript",
+                  "PHP", "SQL", "Laravel", "Java", "Python",
+                  "HTML", "CSS", "Tailwind CSS", "React", "JavaScript",
+                  "PHP", "SQL", "Laravel", "Java", "Python",
+                ].map((tech, i) => (
+                  <span key={i} className="px-6 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2a2a2a] hover:text-[#444] transition-colors duration-300 whitespace-nowrap">
+                    {tech}
+                    <span className="mx-4 text-gold opacity-30">·</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: ContactSection
+    ───────────────────────────────────────────── */
+    function ContactSection({ owner }) {
+      const [copied, setCopied] = useState(false);
+
+      const handleCopy = () => {
+        navigator.clipboard.writeText(owner.email).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        });
+      };
+
+      return (
+        <section id="contact" className="py-24 md:py-40 px-6 relative overflow-hidden">
+          {/* Background glow */}
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+            style={{
+              width: "800px", height: "400px",
+              background: "radial-gradient(ellipse at center bottom, rgba(201,168,76,0.06) 0%, transparent 70%)",
+              filter: "blur(40px)",
+            }}
+          />
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            {/* Eyebrow */}
+            <div className="reveal flex items-center justify-center gap-3 mb-8">
+              <span className="h-[1px] w-8 bg-gold opacity-70" />
+              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#555]">
+                Contacto
+              </span>
+              <span className="h-[1px] w-8 bg-gold opacity-70" />
+            </div>
+
+            {/* Heading */}
+            <h2 className="reveal reveal-delay-1 text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-none mb-8">
+              ¿Tienes un<br />
+              <span className="text-gold-gradient">proyecto?</span>
+            </h2>
+
+            <p className="reveal reveal-delay-2 text-base text-[#555] leading-relaxed max-w-lg mx-auto mb-12">
+              Estoy disponible para proyectos freelance, colaboraciones y consultoría.
+              Cuéntame tu idea y lo convertimos en realidad.
+            </p>
+
+            {/* Email button */}
+            <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={handleCopy}
+                className="btn-primary"
+                style={{ cursor: "none" }}
+              >
+                {copied ? (
+                  <>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    ¡Copiado!
+                  </>
+                ) : (
+                  <>
+                    {owner.email}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <rect x="5" y="5" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5"/>
+                      <path d="M3 11V3h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Location */}
+            <div className="reveal reveal-delay-4 mt-10 flex items-center justify-center gap-2 text-[12px] text-[#444] font-medium tracking-wider">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="5" r="2" stroke="currentColor" strokeWidth="1"/>
+                <path d="M6 1a4 4 0 014 4c0 3-4 7-4 7S2 8 2 5a4 4 0 014-4z" stroke="currentColor" strokeWidth="1"/>
+              </svg>
+              {owner.location}
+              <span className="text-[#2a2a2a] mx-2">·</span>
+              <span className="flex items-center gap-1.5">
+                <span className="availability-dot" style={{ width: "6px", height: "6px" }} />
+                {owner.availableText}
+              </span>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       COMPONENT: Footer
+    ───────────────────────────────────────────── */
+    function Footer({ owner }) {
+      const year = new Date().getFullYear();
+
+      const socialLinks = [
+        { label: "Twitter",   href: owner.socials.twitter },
+        { label: "LinkedIn",  href: owner.socials.linkedin },
+        { label: "GitHub",    href: owner.socials.github },
+        { label: "Dribbble",  href: owner.socials.dribbble },
+      ];
+
+      return (
+        <footer className="footer-gradient px-6 py-10">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Left */}
+            <div className="flex items-center gap-3">
+              <span className="text-base font-black text-gold-gradient">V.</span>
+              <span className="text-[11px] text-[#333] font-medium tracking-wider uppercase">
+                © {year} {owner.name}
+              </span>
+            </div>
+
+            {/* Center — socials */}
+            <ul className="flex items-center gap-6">
+              {socialLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-[11px] font-medium text-[#333] hover:text-[#888] transition-colors duration-300 tracking-wider uppercase"
+                    style={{ cursor: "none" }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </footer>
+      );
+    }
+
+    /* ─────────────────────────────────────────────
+       ROOT: App
+    ───────────────────────────────────────────── */
+    function App() {
+      const [isFirstVisit, setIsFirstVisit] = useState(false);
+
+      // localStorage first-visit check
+      useEffect(() => {
+        const key = "portfolio_visited";
+        const visited = localStorage.getItem(key);
+        if (!visited) {
+          setIsFirstVisit(true);
+          localStorage.setItem(key, "1");
+        }
+        // Apply no-intro class to body for returning visitors
+        if (visited) {
+          document.body.classList.add("no-intro");
+        }
+      }, []);
+
+      // Scroll reveal
+      useRevealOnScroll();
+
+      const owner    = window.ownerData;
+      const projects = window.projectsData;
+
+      return (
+        <>
+          <Header owner={owner} />
+          <main>
+            <HeroSection owner={owner} isFirstVisit={isFirstVisit} />
+            <ProjectsGrid projects={projects} />
+            <ServicesSection />
+            <ContactSection owner={owner} />
+          </main>
+          <Footer owner={owner} />
+        </>
+      );
+    }
+
+    /* ── Render ── */
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(React.createElement(App));
+
+  </script>
+
+  <!-- ── Custom cursor script ── -->
+  <script>
+    (function () {
+      const dot  = document.getElementById("cursorDot");
+      const ring = document.getElementById("cursorRing");
+      if (!dot || !ring) return;
+
+      /* Only on non-touch devices */
+      if (window.matchMedia("(hover: none)").matches) {
+        dot.style.display = ring.style.display = "none";
+        return;
+      }
+
+      let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
+      let mouseX = 0, mouseY = 0;
+      let raf;
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      document.addEventListener("mouseleave", () => {
+        dot.classList.add("cursor-hidden");
+        ring.classList.add("cursor-hidden");
+      });
+      document.addEventListener("mouseenter", () => {
+        dot.classList.remove("cursor-hidden");
+        ring.classList.remove("cursor-hidden");
+      });
+
+      /* Hover effect on interactive elements */
+      const HOVER_SELECTORS = "a, button, [role='button'], label, input, select, textarea";
+      document.addEventListener("mouseover", (e) => {
+        if (e.target.closest(HOVER_SELECTORS)) ring.classList.add("hovering");
+        else ring.classList.remove("hovering");
+      });
+
+      /* Smooth follow animation */
+      function animate() {
+        dotX  = mouseX;
+        dotY  = mouseY;
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+
+        dot.style.left  = dotX  + "px";
+        dot.style.top   = dotY  + "px";
+        ring.style.left = ringX + "px";
+        ring.style.top  = ringY + "px";
+
+        raf = requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
+</body>
+</html>

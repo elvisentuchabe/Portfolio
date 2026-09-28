@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina — Alta Cocina · La Pureza del Sabor</title>
+  <meta name="description" content="Lumina — Restaurante de alta cocina. Una experiencia gastronómica minimalista y pura en Madrid." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Google Fonts: Cormorant Garamond (Serif de Lujo) + Inter (Sans-Serif Geométrica) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Leaflet OpenStreetMap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- Main Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Header / Navbar -->
+  <header id="navbar" class="header">
+    <nav class="container nav">
+      <a href="#hero" class="logo" aria-label="Lumina — Inicio">
+        <span class="logo-text">Lumina</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#philosophy" class="nav-link">Filosofía</a></li>
+        <li><a href="#menu" class="nav-link">Menú</a></li>
+        <li><a href="#reservations" class="nav-link">Reservas</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <a href="#reservations" class="nav-cta">Reservar Mesa</a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="burger-btn" class="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Overlay Menu -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#philosophy" class="mobile-link">Filosofía</a></li>
+        <li><a href="#menu" class="mobile-link">Menú</a></li>
+        <li><a href="#reservations" class="mobile-link">Reservas</a></li>
+        <li><a href="#contact" class="mobile-link">Contacto</a></li>
+        <li><a href="#reservations" class="mobile-link mobile-cta">Reservar Mesa</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero" aria-label="Sección principal">
+      <!-- Parallax Background Elements -->
+      <div id="hero-bg" class="hero-bg" aria-hidden="true">
+        <div class="hero-texture"></div>
+        <div class="hero-gradient"></div>
+        <svg class="hero-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <line x1="480" y1="0" x2="480" y2="900" stroke="rgba(201,169,110,0.08)" stroke-width="0.5"/>
+          <line x1="960" y1="0" x2="960" y2="900" stroke="rgba(201,169,110,0.08)" stroke-width="0.5"/>
+          <line x1="0" y1="300" x2="1440" y2="300" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+          <line x1="0" y1="600" x2="1440" y2="600" stroke="rgba(201,169,110,0.06)" stroke-width="0.5"/>
+          <circle cx="720" cy="450" r="300" fill="none" stroke="rgba(201,169,110,0.04)" stroke-width="0.5"/>
+          <circle cx="720" cy="450" r="200" fill="none" stroke="rgba(201,169,110,0.04)" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="container hero-content">
+        <p class="section-label hero-pretitle">Alta Cocina · Madrid</p>
+        <h1 class="hero-title">
+          La pureza<br />
+          <em>del sabor</em>
+        </h1>
+        <p class="hero-subtitle">
+          Una experiencia gastronómica donde cada detalle es una obra de arte.<br />
+          Reserva tu momento.
+        </p>
+      </div>
+
+      <!-- Year Stamp -->
+      <span class="year-stamp" aria-hidden="true">Est. 2019</span>
+
+      <!-- Scroll Indicator -->
+      <a href="#philosophy" class="scroll-indicator" aria-label="Desplazarse hacia abajo">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">Descubrir</span>
+      </a>
+    </section>
+
+    <!-- PHILOSOPHY SECTION -->
+    <section id="philosophy" class="section philosophy-section" aria-labelledby="philosophy-title">
+      <div class="container philosophy-inner">
+        <!-- Left Sticky Column -->
+        <div class="philosophy-left">
+          <p class="section-label reveal">Nuestra Filosofía</p>
+          <h2 id="philosophy-title" class="section-heading reveal reveal-delay-1">
+            El arte de<br /><em>la esencia</em>
+          </h2>
+          <p class="philosophy-body reveal reveal-delay-2">
+            En Lumina creemos que la perfección culinaria no se alcanza añadiendo,
+            sino eliminando. Cada plato es el resultado de meses de investigación
+            reducidos a su expresión más pura.
+          </p>
+        </div>
+
+        <!-- Right Pillars Column -->
+        <ul class="pillars" role="list">
+          <li class="pillar reveal reveal-delay-2">
+            <span class="pillar-number" aria-hidden="true">01</span>
+            <div>
+              <h3 class="pillar-title">Origen</h3>
+              <p class="pillar-desc">Cada ingrediente es seleccionado directamente en su lugar de origen. Temporada, terroir y artesanía en perfecta armonía.</p>
+            </div>
+          </li>
+          <li class="pillar reveal reveal-delay-3">
+            <span class="pillar-number" aria-hidden="true">02</span>
+            <div>
+              <h3 class="pillar-title">Técnica</h3>
+              <p class="pillar-desc">La precisión al servicio de la emoción. Aplicamos técnicas de vanguardia con absoluto respeto por el producto.</p>
+            </div>
+          </li>
+          <li class="pillar reveal reveal-delay-4">
+            <span class="pillar-number" aria-hidden="true">03</span>
+            <div>
+              <h3 class="pillar-title">Silencio</h3>
+              <p class="pillar-desc">Eliminamos lo superfluo. Lo que permanece en el plato es todo lo que necesitas: pureza de sabor, pureza de forma.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="decor-rule reveal" aria-hidden="true"></div>
+    </section>
+
+    <!-- KINETIC MENU SECTION -->
+    <section id="menu" class="section menu-section" aria-labelledby="menu-title">
+      <div class="container menu-inner">
+        <!-- Section Header -->
+        <div class="menu-header">
+          <p class="section-label reveal">Carta</p>
+          <h2 id="menu-title" class="section-heading reveal reveal-delay-1">
+            Una selección<br /><em>cuidadosa</em>
+          </h2>
+          <p class="menu-note reveal reveal-delay-2">Desliza sobre los platos para descubrirlos.</p>
+        </div>
+
+        <!-- Menu Tabs -->
+        <nav class="menu-tabs reveal" aria-label="Categorías del menú" role="tablist">
+          <button role="tab" class="tab-btn active" data-category="starters" aria-selected="true">Entrantes</button>
+          <button role="tab" class="tab-btn" data-category="mains" aria-selected="false">Principales</button>
+          <button role="tab" class="tab-btn" data-category="desserts" aria-selected="false">Postres</button>
+        </nav>
+
+        <!-- Kinetic List Container -->
+        <div class="menu-list-wrapper">
+          <!-- Floating Image Preview (follows mouse) -->
+          <div id="floating-img" class="floating-img" aria-hidden="true">
+            <img id="floating-img-tag" src="" alt="Plato preview" />
+          </div>
+
+          <ul id="menu-list" class="menu-list" role="list">
+            <!-- Rendered by js/menu.js -->
+          </ul>
+        </div>
+
+        <!-- Tasting Menu Card -->
+        <div class="tasting-cta reveal">
+          <p class="tasting-text">Menú Degustación · 9 pasos · Maridaje opcional</p>
+          <span class="tasting-price">195 €</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVATIONS SECTION (Instant Flow) -->
+    <section id="reservations" class="section reservations-section" aria-labelledby="reservations-title">
+      <div class="container reservations-inner">
+        <!-- Section Header -->
+        <div class="reservations-header">
+          <p class="section-label reveal">Reservas</p>
+          <h2 id="reservations-title" class="section-heading reveal reveal-delay-1">
+            Reserve su<br /><em>experiencia</em>
+          </h2>
+        </div>
+
+        <!-- Reservation Interactive Card -->
+        <div class="res-card reveal reveal-delay-2">
+          <!-- Guest Selector -->
+          <div class="guest-row">
+            <span class="res-field-label">Comensales</span>
+            <div id="guest-pills" class="guest-pills" role="radiogroup" aria-label="Número de comensales">
+              <button type="button" class="guest-pill" data-guests="1" aria-label="1 persona">1</button>
+              <button type="button" class="guest-pill active" data-guests="2" aria-label="2 personas">2</button>
+              <button type="button" class="guest-pill" data-guests="3" aria-label="3 personas">3</button>
+              <button type="button" class="guest-pill" data-guests="4" aria-label="4 personas">4</button>
+              <button type="button" class="guest-pill" data-guests="5" aria-label="5 personas">5</button>
+              <button type="button" class="guest-pill" data-guests="6" aria-label="6 personas">6</button>
+            </div>
+          </div>
+
+          <div class="res-divider" aria-hidden="true"></div>
+
+          <!-- Date Gestural Carousel -->
+          <div class="carousel-section">
+            <p class="res-field-label">Fecha</p>
+            <div id="date-carousel" class="date-carousel-track" role="listbox" aria-label="Seleccione fecha">
+              <!-- Rendered dynamically by js/reservations.js -->
+            </div>
+          </div>
+
+          <!-- Instant Bubbling Timeslots -->
+          <div class="slots-section">
+            <p class="res-field-label">Horario disponible</p>
+            <div id="time-bubbles" class="bubbles-grid" role="listbox" aria-label="Horarios disponibles">
+              <!-- Rendered dynamically by js/reservations.js -->
+            </div>
+          </div>
+
+          <!-- Live Dynamic Summary -->
+          <div id="live-summary" class="live-summary" aria-live="polite" style="display: none;">
+            <span id="summary-guests">2 Pers.</span>
+            <span class="summary-dot" aria-hidden="true"> · </span>
+            <span id="summary-date">Hoy</span>
+            <span class="summary-dot" aria-hidden="true"> · </span>
+            <span id="summary-time">20:30h</span>
+          </div>
+
+          <!-- Contact input fields -->
+          <div id="contact-fields" class="res-contact-fields">
+            <label class="input-wrapper">
+              <span class="input-label">Nombre</span>
+              <input type="text" id="res-name" class="res-input" placeholder="Su nombre" autocomplete="name" />
+            </label>
+            <label class="input-wrapper">
+              <span class="input-label">Email</span>
+              <input type="email" id="res-email" class="res-input" placeholder="correo@ejemplo.com" autocomplete="email" />
+            </label>
+          </div>
+
+          <!-- Particle Confirm Button Area -->
+          <div class="btn-row">
+            <div class="confirm-wrapper">
+              <canvas id="particle-canvas" class="particle-canvas" width="400" height="120" aria-hidden="true"></canvas>
+
+              <button id="confirm-btn" class="confirm-btn disabled" disabled aria-label="Confirmar reserva">
+                <span class="btn-text-base">Confirmar Reserva</span>
+                <span class="btn-text-hover">Confirmar Reserva</span>
+                <span class="btn-shimmer" aria-hidden="true"></span>
+              </button>
+
+              <!-- Confirmed State (hidden by default) -->
+              <div id="confirmed-box" class="confirmed-state" style="display: none;">
+                <div class="checkmark-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="confirmed-title">Reserva Confirmada</p>
+                  <p class="confirmed-sub">Recibirá un email de confirmación en breve.</p>
+                </div>
+                <button type="button" id="reset-res-btn" class="reset-res-btn">Nueva reserva</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="res-side-note reveal">
+          Las reservas con menos de 24 horas de antelación están sujetas a disponibilidad.
+          Para grupos de más de 6 personas, contáctenos directamente.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT & MAP SECTION -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-grid">
+          <!-- Left Sticky Header -->
+          <div class="contact-left">
+            <p class="section-label reveal">Contacto</p>
+            <h2 id="contact-title" class="section-heading reveal reveal-delay-1">
+              Estamos<br /><em>aquí</em>
+            </h2>
+          </div>
+
+          <!-- Right Info Blocks -->
+          <div class="contact-right">
+            <div class="contact-block reveal reveal-delay-1">
+              <p class="block-label">Dirección</p>
+              <p class="block-value">Calle Serrano, 42<br />28001 Madrid, España</p>
+            </div>
+
+            <div class="contact-block reveal reveal-delay-2">
+              <p class="block-label">Horario</p>
+              <p class="block-value">
+                Martes – Sábado<br />
+                13:00 – 15:30h &amp; 20:00 – 23:00h
+              </p>
+            </div>
+
+            <div class="contact-block reveal reveal-delay-3">
+              <p class="block-label">Contacto directo</p>
+              <a href="tel:+34910000000" class="block-link">+34 910 000 000</a>
+              <a href="mailto:hola@luminarestaurante.es" class="block-link">hola@luminarestaurante.es</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real OpenStreetMap with Leaflet -->
+        <div class="map-wrapper reveal">
+          <div id="map" class="map-container" aria-label="Mapa interactivo con la ubicación de Lumina"></div>
+          <div class="map-overlay-badge" aria-hidden="true">
+            <span class="map-overlay-dot"></span>
+            Calle Serrano, 42 · Madrid
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <div>
+          <span class="footer-logo">Lumina</span>
+          <p class="footer-tagline">La pureza del sabor</p>
+        </div>
+
+        <nav aria-label="Redes sociales">
+          <ul class="social-list" role="list">
+            <li><a href="#" class="social-link">Instagram</a></li>
+            <li><a href="#" class="social-link">Facebook</a></li>
+            <li><a href="#" class="social-link">TripAdvisor</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-bottom">
+        <p class="legal-text">
+          &copy; <span id="current-year"></span> Lumina Restaurante, S.L. Todos los derechos reservados.
+        </p>
+        <div class="legal-links">
+          <a href="#" class="legal-link">Privacidad</a>
+          <a href="#" class="legal-link">Cookies</a>
+          <a href="#" class="legal-link">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet OpenStreetMap JS CDN -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  ></script>
+
+  <!-- Custom Modular JS Scripts -->
+  <script src="js/cursor.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/reservations.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
