@@ -74,56 +74,6 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #C5A880;
     }
-    
-    /* Before/After Slider specific styling */
-    .ba-slider-container {
-      position: relative;
-      user-select: none;
-      -webkit-user-select: none;
-      overflow: hidden;
-    }
-    .ba-slider-before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 50%;
-      overflow: hidden;
-      will-change: width;
-    }
-    .ba-slider-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 2px;
-      background-color: #C5A880;
-      cursor: ew-resize;
-      z-index: 20;
-      transform: translateX(-50%);
-    }
-    .ba-handle-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 9999px;
-      background-color: #191918;
-      border: 2px solid #C5A880;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      color: #FAF8F5;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-    }
-    .ba-handle-button:hover {
-      transform: translate(-50%, -50%) scale(1.08);
-      background-color: #C5A880;
-      color: #191918;
-    }
 
     /* Modal Backdrop Transitions */
     .modal-backdrop {
@@ -216,7 +166,6 @@
       <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-widest uppercase font-medium text-aura-charcoal/80">
         <a href="#filosofia" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Filosofía</a>
         <a href="#tratamientos" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Tratamientos</a>
-        <a href="#casos" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Casos Clínicos</a>
         <a href="#diagnostico" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Diagnóstico</a>
         <a href="#equipo" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Equipo Médico</a>
         <a href="#instalaciones" class="hover:text-aura-gold transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-aura-gold hover:after:w-full after:transition-all">Espacio VIP</a>
@@ -256,7 +205,6 @@
       <div class="flex flex-col gap-4 text-sm tracking-widest uppercase font-medium">
         <a href="#filosofia" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Filosofía Médica</a>
         <a href="#tratamientos" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Tratamientos Especializados</a>
-        <a href="#casos" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Casos Clínicos Antes / Después</a>
         <a href="#diagnostico" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Test Diagnóstico Rápido</a>
         <a href="#equipo" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Cuadro Médico</a>
         <a href="#instalaciones" class="mobile-nav-link text-aura-charcoal hover:text-aura-gold py-1">Espacio & Acceso Discreto</a>
@@ -312,15 +260,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
               </svg>
               <span>Agendar Primera Consulta</span>
-            </a>
-
-            <a href="#casos" class="inline-flex items-center justify-center gap-3 border border-aura-charcoal text-aura-charcoal hover:bg-aura-sand/40 px-7 py-4 text-xs tracking-widest-plus uppercase font-medium transition-all duration-300">
-              <!-- SVG Eye / Case Study -->
-              <svg class="w-4 h-4 text-aura-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Ver Casos y Resultados</span>
             </a>
           </div>
 
@@ -523,157 +462,6 @@
   <!-- ============================================================ -->
   <!-- 6. WIDGET INTERACTIVO: COMPARADOR ANTES VS. DESPUÉS -->
   <!-- ============================================================ -->
-  <section id="casos" class="py-24 bg-aura-cream/40 border-b border-aura-border/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      
-      <!-- Section Header -->
-      <div class="max-w-3xl mx-auto text-center space-y-4 mb-14">
-        <span class="text-xs uppercase tracking-ultra text-aura-gold font-semibold">Evidencia Clínica Contrastada</span>
-        <h2 class="font-serif text-3xl sm:text-5xl text-aura-charcoal font-normal">
-          Casos Clínicos: Antes y Después
-        </h2>
-        <div class="w-12 h-[1px] bg-aura-gold mx-auto"></div>
-        <p class="text-aura-muted text-sm sm:text-base font-light leading-relaxed">
-          Deslice el controlador interactivo para observar la regeneración tisular y la reposición de soporte facial. Fotografías clínicas sin retoque digital bajo iluminación médica estandarizada.
-        </p>
-      </div>
-
-      <!-- Case Selector Pills -->
-      <div class="flex justify-center gap-3 mb-10 flex-wrap">
-        <button onclick="switchCase(0, this)" class="case-btn active px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-charcoal bg-aura-charcoal text-aura-cream transition-all">
-          Caso 01: Armonización Facial Full Face
-        </button>
-        <button onclick="switchCase(1, this)" class="case-btn px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-border bg-aura-bg text-aura-muted hover:text-aura-charcoal transition-all">
-          Caso 02: Resurfacing Láser Fraccionado CO2
-        </button>
-        <button onclick="switchCase(2, this)" class="case-btn px-4 py-2 text-xs uppercase tracking-widest font-medium border border-aura-border bg-aura-bg text-aura-muted hover:text-aura-charcoal transition-all">
-          Caso 03: Definición Mandibular y Cuello
-        </button>
-      </div>
-
-      <!-- Comparison Interactive Box & Clinical Card -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-aura-bg border border-aura-border p-6 sm:p-8 shadow-aura">
-        
-        <!-- Left: Interactive Split Slider -->
-        <div class="lg:col-span-8">
-          <div class="ba-slider-container aspect-[4/3] sm:aspect-[16/10] bg-aura-charcoal border border-aura-border relative cursor-ew-resize" id="ba-container">
-            
-            <!-- After Image (Base) -->
-            <img 
-              id="ba-after-img" 
-              src="https://images.unsplash.com/photo-1512290900672-1f5be63dc68c?auto=format&fit=crop&w=1200&q=80" 
-              alt="Resultado Después del tratamiento" 
-              class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none filter contrast-[1.03]"
-            />
-            <div class="absolute bottom-4 right-4 bg-aura-dark/85 backdrop-blur-sm text-aura-cream text-[10px] tracking-widest-plus uppercase px-3 py-1.5 font-medium border border-aura-gold/50 z-10 pointer-events-none">
-              Después (1 Mes)
-            </div>
-
-            <!-- Before Image (Overlaid & Clipped) -->
-            <div class="ba-slider-before" id="ba-before-wrapper">
-              <img 
-                id="ba-before-img" 
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" 
-                alt="Estado clínico Antes del tratamiento" 
-                class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none filter grayscale-[25%] contrast-[0.96]"
-                style="width: 100%; max-width: none;"
-              />
-              <div class="absolute bottom-4 left-4 bg-aura-dark/85 backdrop-blur-sm text-aura-cream text-[10px] tracking-widest-plus uppercase px-3 py-1.5 font-medium border border-aura-border z-10 pointer-events-none">
-                Antes de Iniciar
-              </div>
-            </div>
-
-            <!-- Dividing Handle Bar -->
-            <div class="ba-slider-handle" id="ba-handle">
-              <div class="ba-handle-button">
-                <!-- SVG Left-Right Arrows -->
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L4.5 12m0 0l3.75-3.75M4.5 12h15m0 0l-3.75 3.75M19.5 12l-3.75-3.75" />
-                </svg>
-              </div>
-            </div>
-
-            <!-- Accessible HTML Range Input for screen readers and touch fallback -->
-            <input 
-              type="range" 
-              min="0" 
-              max="100" 
-              value="50" 
-              id="ba-range" 
-              class="sr-only" 
-              aria-label="Control deslizante para comparar imagen antes y después"
-            />
-          </div>
-
-          <!-- Helper hint -->
-          <div class="flex items-center justify-between text-[11px] text-aura-muted mt-3">
-            <span class="flex items-center gap-1.5">
-              <!-- SVG Hand Drag -->
-              <svg class="w-3.5 h-3.5 text-aura-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-              </svg>
-              Arrastre el divisor central para comparar el resultado clínico
-            </span>
-            <span class="text-aura-subtle">Reg. Fotográfico Estandarizado</span>
-          </div>
-        </div>
-
-        <!-- Right: Clinical Case Details -->
-        <div class="lg:col-span-4 space-y-6">
-          <div class="border-b border-aura-border pb-4">
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-aura-gold block mb-1" id="case-reg">HISTORIAL MÉDICO #F-204</span>
-            <h3 class="font-serif text-2xl text-aura-charcoal font-normal" id="case-title">Armonización Facial & Soporte Malar</h3>
-          </div>
-
-          <!-- Specs list -->
-          <div class="space-y-3 text-xs">
-            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
-              <span class="text-aura-muted uppercase tracking-wider">Paciente:</span>
-              <span class="font-medium text-aura-charcoal" id="case-patient">Mujer, 44 años</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
-              <span class="text-aura-muted uppercase tracking-wider">Protocolo:</span>
-              <span class="font-medium text-aura-charcoal text-right" id="case-protocol">Ácido Hialurónico + Inductor Dérmico</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
-              <span class="text-aura-muted uppercase tracking-wider">Facultativo:</span>
-              <span class="font-medium text-aura-charcoal" id="case-doctor">Dr. Alejandro de la Vega</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
-              <span class="text-aura-muted uppercase tracking-wider">Sesiones:</span>
-              <span class="font-medium text-aura-charcoal" id="case-sessions">1 Sesión médica + revisión a los 21 días</span>
-            </div>
-            <div class="flex justify-between py-1.5 border-b border-aura-border/60">
-              <span class="text-aura-muted uppercase tracking-wider">Tiempo de Baja:</span>
-              <span class="font-medium text-emerald-800" id="case-recovery">Inmediato (Sin hematomas residuales)</span>
-            </div>
-          </div>
-
-          <!-- Clinical Doctor Note -->
-          <div class="bg-aura-cream p-4 border-l-2 border-aura-gold text-xs leading-relaxed text-aura-muted italic" id="case-notes">
-            "El objetivo prioritario fue devolver la proyección al tercio medio sin añadir volumen innecesario en mejillas, restaurando la transición del surco nasogeniano con cánula atraumática bajo control ecográfico."
-          </div>
-
-          <!-- Action Button to Book this treatment -->
-          <button onclick="prefillBookingFromCase()" class="w-full bg-aura-charcoal text-aura-cream hover:bg-aura-gold hover:text-aura-charcoal py-3.5 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2">
-            <!-- SVG Calendar -->
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Consultar Disponibilidad para este Caso</span>
-          </button>
-
-          <!-- Sanitary legal notice -->
-          <p class="text-[10px] text-aura-subtle leading-normal">
-            * Disposición sanitaria: Los resultados individuales pueden variar en función de las características dérmicas, edad biológica y estilo de vida del paciente.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
 
   <!-- ============================================================ -->
   <!-- 7. HERRAMIENTA INTERACTIVA: TEST DE DIAGNÓSTICO RÁPIDO -->
@@ -1668,7 +1456,7 @@
           <ul class="space-y-2 text-xs text-aura-cream/70 font-light">
             <li><a href="#filosofia" class="hover:text-aura-gold transition-colors">El Enfoque AURA</a></li>
             <li><a href="#equipo" class="hover:text-aura-gold transition-colors">Cuadro Médico Colegiado</a></li>
-            <li><a href="#casos" class="hover:text-aura-gold transition-colors">Casos Clínicos Auditados</a></li>
+            <li></li>
             <li><a href="#diagnostico" class="hover:text-aura-gold transition-colors">Test Diagnóstico Rápido</a></li>
             <li><a href="#instalaciones" class="hover:text-aura-gold transition-colors">Protocolo Acceso VIP</a></li>
             <li><a href="#reserva" class="hover:text-aura-gold transition-colors">Solicitar Cita Online</a></li>
@@ -2027,56 +1815,10 @@
     ];
 
     /* ============================================================
-     * CASOS CLÍNICOS (ANTES / DESPUÉS)
-     * ============================================================ */
-    const CLINICAL_CASES = [
-      {
-        id: 'case-1',
-        reg: 'HISTORIAL MÉDICO #F-204',
-        title: 'Armonización Facial & Soporte Malar',
-        patient: 'Mujer, 44 años',
-        protocol: 'Ácido Hialurónico + Inductor Dérmico',
-        doctor: 'Dr. Alejandro de la Vega',
-        sessions: '1 Sesión médica + revisión a los 21 días',
-        recovery: 'Inmediato (Sin hematomas residuales)',
-        notes: '"El objetivo prioritario fue devolver la proyección al tercio medio sin añadir volumen innecesario en mejillas, restaurando la transición del surco nasogeniano con cánula atraumática bajo control ecográfico."',
-        beforeImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80',
-        afterImg: 'https://images.unsplash.com/photo-1512290900672-1f5be63dc68c?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 'case-2',
-        reg: 'HISTORIAL MÉDICO #D-812',
-        title: 'Resurfacing Láser Fraccionado CO2',
-        patient: 'Hombre, 51 años',
-        protocol: 'Láser CO2 Fraccionado + Exosomas Tópicos',
-        doctor: 'Dra. Sofía Valenzuela',
-        sessions: '1 Sesión médica profunda',
-        recovery: '72 horas de eritema leve controlado',
-        notes: '"Paciente con secuelas atróficas y elastosis solar marcada. Se calibró el láser con pulsos de 120 micras en epidermis y dermis papilar, logrando un tensado significativo y cierre evidente del poro."',
-        beforeImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
-        afterImg: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 'case-3',
-        reg: 'HISTORIAL MÉDICO #M-309',
-        title: 'Definición de Mandíbula y Cuello',
-        patient: 'Mujer, 38 años',
-        protocol: 'Morpheus8 + Marcaje Ángulo Mandibular',
-        doctor: 'Dr. Alejandro de la Vega',
-        sessions: '2 Sesiones espaciadas 4 semanas',
-        recovery: '24 horas',
-        notes: '"Abordaje no quirúrgico de la pérdida de nitidez en la línea mandibular. La combinación de radiofrecuencia con microagujas compactó la grasa submentoniana respetando la anatomía femenina."',
-        beforeImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
-        afterImg: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80'
-      }
-    ];
-
-    /* ============================================================
      * INICIALIZACIÓN DE LA APLICACIÓN
      * ============================================================ */
     document.addEventListener('DOMContentLoaded', () => {
       renderTreatments('facial');
-      initBeforeAfterSlider();
       initCalendar(10, 2026); // Octubre 2026
       initMobileNav();
     });
@@ -2208,95 +1950,8 @@
             break;
           }
         }
-      }
-      document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    /* ============================================================
-     * SLIDER INTERACTIVO ANTES / DESPUÉS
-     * ============================================================ */
-    let isDragging = false;
-
-    function initBeforeAfterSlider() {
-      const container = document.getElementById('ba-container');
-      const handle = document.getElementById('ba-handle');
-      const beforeWrapper = document.getElementById('ba-before-wrapper');
-      const range = document.getElementById('ba-range');
-
-      function updateSlider(percent) {
-        if (percent < 0) percent = 0;
-        if (percent > 100) percent = 100;
-        beforeWrapper.style.width = percent + '%';
-        handle.style.left = percent + '%';
-        range.value = percent;
-      }
-
-      function handleMove(e) {
-        if (!isDragging) return;
-        const rect = container.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const offset = clientX - rect.left;
-        const percent = (offset / rect.width) * 100;
-        updateSlider(percent);
-      }
-
-      function startDrag(e) {
-        isDragging = true;
-        handleMove(e);
-      }
-
-      function stopDrag() {
-        isDragging = false;
-      }
-
-      // Mouse events
-      container.addEventListener('mousedown', startDrag);
-      window.addEventListener('mousemove', handleMove);
-      window.addEventListener('mouseup', stopDrag);
-
-      // Touch events for mobile responsiveness
-      container.addEventListener('touchstart', startDrag, { passive: true });
-      window.addEventListener('touchmove', handleMove, { passive: true });
-      window.addEventListener('touchend', stopDrag);
-
-      // Accessible Range Input
-      range.addEventListener('input', (e) => {
-        updateSlider(e.target.value);
-      });
-    }
-
-    function switchCase(index, btn) {
-      document.querySelectorAll('.case-btn').forEach(b => {
-        b.classList.remove('bg-aura-charcoal', 'text-aura-cream');
-        b.classList.add('bg-aura-bg', 'text-aura-muted');
-      });
-      btn.classList.add('bg-aura-charcoal', 'text-aura-cream');
-      btn.classList.remove('bg-aura-bg', 'text-aura-muted');
-
-      const data = CLINICAL_CASES[index];
-      if (!data) return;
-
-      document.getElementById('ba-before-img').src = data.beforeImg;
-      document.getElementById('ba-after-img').src = data.afterImg;
-      document.getElementById('case-reg').innerText = data.reg;
-      document.getElementById('case-title').innerText = data.title;
-      document.getElementById('case-patient').innerText = data.patient;
-      document.getElementById('case-protocol').innerText = data.protocol;
-      document.getElementById('case-doctor').innerText = data.doctor;
-      document.getElementById('case-sessions').innerText = data.sessions;
-      document.getElementById('case-recovery').innerText = data.recovery;
-      document.getElementById('case-notes').innerText = data.notes;
-    }
-
-    function prefillBookingFromCase() {
-      const caseTitle = document.getElementById('case-title').innerText;
-      const select = document.getElementById('book-treatment');
-      for (let i = 0; i < select.options.length; i++) {
-        if (select.options[i].text.toLowerCase().includes(caseTitle.toLowerCase().substring(0, 15))) {
-          select.selectedIndex = i;
-          break;
-        }
-      }
+      
+}
       document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
     }
 
