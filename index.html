@@ -51,6 +51,9 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
+  <!-- EmailJS via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <!-- Babel Standalone (JSX transpiler) -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
@@ -525,13 +528,29 @@
        COMPONENT: ContactSection
     ───────────────────────────────────────────── */
     function ContactSection({ owner }) {
-      const [copied, setCopied] = useState(false);
+      const form = useRef();
+      const [status, setStatus] = useState("");
 
-      const handleCopy = () => {
-        navigator.clipboard.writeText(owner.email).then(() => {
-          setCopied(true);
-          setTimeout(() => setCopied(false), 2000);
-        });
+      const sendEmail = (e) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        // IMPORTANTE: Reemplaza estos valores por los tuyos de EmailJS
+        const SERVICE_ID = 'service_6yvtdff';
+        const TEMPLATE_ID = 'template_njj1nag';
+        const PUBLIC_KEY = 'U6mX3b9cyn1LtSge8';
+
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+          .then((result) => {
+              console.log(result.text);
+              setStatus("success");
+              e.target.reset();
+              setTimeout(() => setStatus(""), 5000);
+          }, (error) => {
+              console.log(error.text);
+              setStatus("error");
+              setTimeout(() => setStatus(""), 5000);
+          });
       };
 
       return (
@@ -567,30 +586,27 @@
               Cuéntame tu idea y lo convertimos en realidad.
             </p>
 
-            {/* Email button */}
-            <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={handleCopy}
-                className="btn-primary"
-                style={{ cursor: "none" }}
-              >
-                {copied ? (
-                  <>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    ¡Copiado!
-                  </>
-                ) : (
-                  <>
-                    {owner.email}
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <rect x="5" y="5" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-                      <path d="M3 11V3h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  </>
-                )}
-              </button>
+            {/* Contact Form */}
+            <div className="reveal reveal-delay-3 max-w-md mx-auto mb-12">
+              <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4 text-left">
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#888] uppercase mb-2">Nombre</label>
+                  <input type="text" name="user_name" required className="w-full bg-[#111] border border-[#222] rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors duration-300" placeholder="Tu nombre" />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#888] uppercase mb-2">Email</label>
+                  <input type="email" name="user_email" required className="w-full bg-[#111] border border-[#222] rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors duration-300" placeholder="tu@email.com" />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold tracking-wider text-[#888] uppercase mb-2">Mensaje</label>
+                  <textarea name="message" required rows="4" className="w-full bg-[#111] border border-[#222] rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors duration-300 resize-none" placeholder="¿En qué te puedo ayudar?"></textarea>
+                </div>
+                <button type="submit" disabled={status === "sending"} className="btn-primary mt-2 w-full justify-center disabled:opacity-50" style={{ cursor: "none" }}>
+                  {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                </button>
+                {status === "success" && <p className="text-sm text-green-500 text-center mt-2">¡Mensaje enviado con éxito!</p>}
+                {status === "error" && <p className="text-sm text-red-500 text-center mt-2">Hubo un error al enviar. Inténtalo de nuevo.</p>}
+              </form>
             </div>
 
             {/* Location */}
