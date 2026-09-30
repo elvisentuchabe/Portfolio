@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad · Vicente Romero</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/main.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { DEFAULT: "#c9a84c" },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#0a0a0a] text-[#e5e5e5] font-sans antialiased p-8 md:p-20">
+  <div class="max-w-3xl mx-auto">
+    <a href="index.html" class="inline-flex items-center gap-2 text-sm text-gold hover:text-white transition-colors mb-10" style="cursor: none;">
+      &larr; Volver al inicio
+    </a>
+    
+    <h1 class="text-3xl md:text-5xl font-black mb-8 text-white">Política de Privacidad y Cookies</h1>
+    
+    <div class="space-y-6 text-[#aaa] leading-relaxed">
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">1. Información al usuario</h2>
+        <p>Vicente Romero, como Responsable del Tratamiento, le informa que, según lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril, (RGPD) y en la L.O. 3/2018, de 5 de diciembre, de protección de datos y garantía de los derechos digitales (LOPDGDD), trataremos sus datos tal y como reflejamos en la presente Política de Privacidad.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">2. Recopilación y tratamiento de datos</h2>
+        <p>Recopilamos la información personal que nos proporciona a través de los formularios de contacto de nuestra web. Los datos recogidos son exclusivamente los necesarios para contactarle en respuesta a su consulta (Nombre y correo electrónico). Sus datos no serán cedidos a terceros salvo obligación legal.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">3. Ejercicio de derechos</h2>
+        <p>Usted tiene derecho a acceder, rectificar, cancelar y oponerse al tratamiento de sus datos, así como a la limitación de su tratamiento y a su portabilidad, dirigiendo una comunicación por escrito al correo electrónico: vromerosaiz@gmail.com.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">4. Política de Cookies</h2>
+        <p>Este sitio web utiliza cookies propias y de terceros para recopilar información que ayuda a optimizar su visita a sus páginas web. No se utilizarán las cookies para recoger información de carácter personal sin su consentimiento previo y expreso.</p>
+        <p class="mt-2">Utilizamos las siguientes cookies:</p>
+        <ul class="list-disc list-inside mt-2 ml-4">
+          <li><strong>Cookies técnicas:</strong> Son aquellas que permiten al usuario la navegación a través de una página web y la utilización de las diferentes opciones o servicios que en ella existan.</li>
+          <li><strong>Cookies de análisis (Google Analytics):</strong> Son aquellas que permiten el seguimiento y análisis del comportamiento de los usuarios de los sitios web a los que están vinculadas. La información recogida mediante este tipo de cookies se utiliza en la medición de la actividad de los sitios web con el fin de introducir mejoras en función del análisis de los datos de uso que hacen los usuarios del servicio.</li>
+        </ul>
+      </section>
+      
+    </div>
+  </div>
+
+  <!-- ── Custom cursor ── -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── Custom cursor script ── -->
+  <script>
+    (function () {
+      const dot  = document.getElementById("cursorDot");
+      const ring = document.getElementById("cursorRing");
+      if (!dot || !ring) return;
+
+      if (window.matchMedia("(hover: none)").matches) {
+        dot.style.display = ring.style.display = "none";
+        return;
+      }
+
+      let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
+      let mouseX = 0, mouseY = 0;
+      let raf;
+
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      document.addEventListener("mouseleave", () => {
+        dot.classList.add("cursor-hidden");
+        ring.classList.add("cursor-hidden");
+      });
+      document.addEventListener("mouseenter", () => {
+        dot.classList.remove("cursor-hidden");
+        ring.classList.remove("cursor-hidden");
+      });
+
+      const HOVER_SELECTORS = "a, button:not([type='submit']), [role='button'], label, select";
+      const NATIVE_CURSORS = "input, textarea, button[type='submit']";
+
+      document.addEventListener("mouseover", (e) => {
+        if (e.target.closest(NATIVE_CURSORS)) {
+          dot.style.opacity = "0";
+          ring.style.opacity = "0";
+        } else {
+          dot.style.opacity = "1";
+          ring.style.opacity = "1";
+          if (e.target.closest(HOVER_SELECTORS)) ring.classList.add("hovering");
+          else ring.classList.remove("hovering");
+        }
+      });
+
+      function animate() {
+        dotX  = mouseX;
+        dotY  = mouseY;
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+
+        dot.style.left  = dotX  + "px";
+        dot.style.top   = dotY  + "px";
+        ring.style.left = ringX + "px";
+        ring.style.top  = ringY + "px";
+
+        raf = requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+  </script>
+</body>
+</html>

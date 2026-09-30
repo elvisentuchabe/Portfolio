@@ -431,3 +431,19 @@ hr.gold { border: none; border-top: 1px solid rgba(201,168,76,0.15); }
   .btn-primary  { padding: 13px 26px; font-size: 13px; }
   .btn-outline  { padding: 10px 20px; font-size: 12px; }
 }
+
+/* -- Native cursors for form elements -- */
+input[type="text"], input[type="email"], textarea {
+  cursor: text !important;
+}
+form button[type="submit"] {
+  cursor: default !important;
+}
+
+label {
+  cursor: none !important;
+}
+
+form, form div {
+  cursor: none !important;
+}

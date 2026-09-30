@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vicente — Diseñador web freelance. Experiencias digitales de alto impacto." />
-  <meta property="og:title" content="Vicente · Diseñador Web Freelance" />
-  <meta property="og:description" content="Diseño web. Sin compromisos." />
+  <meta name="description" content="Vicente Romero — Desarrollador web freelance experto en diseño UX/UI. Experiencias digitales de alto impacto que convierten." />
+  <meta name="keywords" content="desarrollador web, diseño web, freelance, UX/UI, programador, front-end, España, remoto, Vicente Romero" />
+  <link rel="canonical" href="https://tudominio.com/" />
+  
+  <meta property="og:title" content="Vicente Romero · Desarrollador Web Freelance" />
+  <meta property="og:description" content="Diseño web sin compromisos. Creo experiencias digitales que convierten visitantes en clientes." />
   <meta property="og:type" content="website" />
-  <title>Vicente · Diseñador Web</title>
+  <meta property="og:image" content="https://tudominio.com/apple-touch-icon.png" />
+  <meta property="og:url" content="https://tudominio.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <title>Vicente Romero · Desarrollador Web Freelance</title>
+
+  <!-- Google Analytics Placeholder -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -258,19 +274,19 @@
             {/* Hero name */}
             <h1 className={cls("", "animate-fade-up animate-delay-400")}>
               <span className="block font-black leading-none tracking-[-0.04em] text-white"
-                style={{ fontSize: "clamp(3.5rem, 12vw, 9rem)" }}>
+                style={{ fontSize: "clamp(3rem, 10vw, 7.5rem)" }}>
                 {owner.firstName || "Vicente"}
               </span>
               <span
                 className="block font-black leading-none tracking-[-0.04em] text-gold-gradient cursor-blink"
-                style={{ fontSize: "clamp(3.5rem, 12vw, 9rem)" }}
+                style={{ fontSize: "clamp(3rem, 10vw, 7.5rem)" }}
               >
                 {(owner.lastName || "Romero") + "."}
               </span>
             </h1>
 
             {/* Separator */}
-            <div className={cls("my-8 md:my-10", "animate-fade-in animate-delay-600")}>
+            <div className={cls("mt-1 mb-8 md:mt-2 md:mb-10", "animate-fade-in animate-delay-600")}>
               <span className="gold-line block w-24 opacity-40" />
             </div>
 
@@ -297,21 +313,7 @@
               </a>
             </div>
 
-            {/* Stats row */}
-            <div className={cls("flex flex-wrap gap-10 mt-16 pt-10 border-t border-[#1a1a1a]", "animate-fade-in animate-delay-1200")}>
-              {[
-                { value: "3+", label: "Años de experiencia" },
-                { value: "20+", label: "Proyectos entregados" },
-                { value: "100%", label: "Clientes satisfechos" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="stat-number text-gold-gradient">{stat.value}</div>
-                  <div className="text-xs text-[#555] font-medium tracking-wider uppercase mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
 
           {/* Scroll hint */}
@@ -443,68 +445,115 @@
     function ServicesSection() {
       const services = [
         {
-          icon: "✦",
+          id: 'uiux',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8 text-[#cba052] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(203,160,82,0.8)]">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+              <circle cx="6.5" cy="17.5" r="3.5" />
+            </svg>
+          ),
           title: "Diseño UI/UX",
-          description: "Interfaces que equilibran estética y funcionalidad. Cada decisión visual tiene un porqué.",
+          description: "Interfaces que equilibran estética y funcionalidad. Desde la investigación y wireframes hasta prototipos interactivos, donde cada decisión visual tiene un porqué.",
         },
         {
-          icon: "◈",
-          title: "Desarrollo Web",
-          description: "Implementación con código limpio, rendimiento óptimo y atención al detalle que marca la diferencia.",
+          id: 'web',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8 text-[#cba052] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(203,160,82,0.8)]">
+              <polygon points="12 2 22 8 22 16 12 22 2 16 2 8 12 2" />
+              <polyline points="2 8 12 14 22 8" />
+              <line x1="12" y1="14" x2="12" y2="22" />
+            </svg>
+          ),
+          title: "Desarrollo de Web Apps",
+          description: "Construcción de aplicaciones escalables y plataformas a medida. Arquitectura moderna, código limpio y rendimiento sobresaliente.",
         },
         {
-          icon: "⬡",
+          id: 'id',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8 text-[#cba052] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(203,160,82,0.8)]">
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="3" />
+              <line x1="12" y1="3" x2="12" y2="21" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+            </svg>
+          ),
           title: "Identidad Digital",
-          description: "Sistemas visuales coherentes que comunican los valores de tu marca con precisión y carácter.",
+          description: "Sistemas visuales coherentes que comunican los valores de tu marca con precisión y carácter. Creación de logotipos y manuales de identidad.",
+        },
+        {
+          id: 'seo',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8 text-[#cba052] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(203,160,82,0.8)]">
+              <path d="M3 21h18M3 14l5-5 4 4 9-9" strokeLinecap="round" strokeLinejoin="round"/>
+              <polyline points="16 4 21 4 21 9" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          ),
+          title: "Optimización WPO y SEO",
+          description: "Auditorías de rendimiento técnico y mejora de Core Web Vitals para que tu proyecto cargue más rápido y convierta mejor.",
+        },
+        {
+          id: 'maint',
+          icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8 text-[#cba052] transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(203,160,82,0.8)]">
+              <circle cx="12" cy="12" r="8" strokeDasharray="4 4" />
+              <circle cx="12" cy="12" r="3" />
+              <polyline points="12 5 12 12 16 16" />
+            </svg>
+          ),
+          title: "Mantenimiento y Evolución",
+          description: "Soporte técnico y bolsas de horas para garantizar seguridad, actualizaciones y el desarrollo de nuevas funcionalidades.",
         },
       ];
 
       return (
-        <section id="services" className="py-24 md:py-32 px-6 bg-[#080808] relative">
+        <section id="services" className="py-24 md:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden">
           {/* Subtle top border */}
           <div className="absolute top-0 left-0 right-0">
             <span className="gold-line block opacity-20" />
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto relative">
             {/* Header */}
-            <div className="reveal mb-16">
+            <div className="reveal mb-16 relative">
               <div className="flex items-center gap-3 mb-6">
-                <span className="h-[1px] w-8 bg-gold opacity-70" />
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#555]">
-                  Lo que hago
+                <span className="h-[1px] w-8 bg-[#cba052]" />
+                <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#cba052]">
+                  LO QUE HAGO
                 </span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+              <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none relative inline-block">
                 Servicios.
+                {/* Decorative Elements */}
+                <div className="absolute -top-6 -right-10 w-16 h-16 rounded-full border border-[#cba052] opacity-30 pointer-events-none"></div>
+                <div className="absolute top-2 -right-4 w-1.5 h-1.5 rounded-full bg-[#cba052] opacity-80 pointer-events-none"></div>
+                <div className="absolute bottom-2 -left-6 w-2 h-2 rounded-full bg-[#cba052] opacity-60 pointer-events-none"></div>
               </h2>
             </div>
 
             {/* Services list */}
-            <div className="space-y-0 divide-y divide-[#111]">
+            <div className="flex flex-col border-t border-[rgba(255,255,255,0.05)]">
               {services.map((service, i) => (
                 <div
-                  key={service.title}
-                  className={`reveal reveal-delay-${i + 1} group flex flex-col md:flex-row md:items-center gap-4 md:gap-10 py-10 cursor-default transition-all duration-300`}
+                  key={service.id}
+                  className={`reveal reveal-delay-${i + 1} group flex flex-col md:flex-row md:items-start gap-4 md:gap-10 py-10 border-b border-[rgba(255,255,255,0.05)] transition-colors duration-300 hover:bg-[rgba(255,255,255,0.02)] cursor-none`}
                 >
-                  <span className="text-2xl text-gold opacity-60 group-hover:opacity-100 transition-opacity duration-300 w-8 flex-shrink-0">
+                  <div className="flex-shrink-0 mt-1 flex items-center md:items-start">
                     {service.icon}
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white md:w-56 flex-shrink-0 group-hover:text-gold-light transition-colors duration-300">
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white md:w-72 flex-shrink-0 mt-0.5">
                     {service.title}
                   </h3>
-                  <p className="text-[#555] text-sm leading-relaxed flex-1 group-hover:text-[#777] transition-colors duration-300">
+                  <p className="text-[#888888] text-base leading-relaxed flex-1 group-hover:text-white transition-colors duration-300">
                     {service.description}
                   </p>
-                  <svg className="hidden md:block text-[#222] group-hover:text-gold transition-colors duration-300 flex-shrink-0" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
                 </div>
               ))}
             </div>
 
             {/* Marquee strip */}
-            <div className="mt-20 overflow-hidden py-4 border-y border-[#111]">
+            <div className="mt-20 overflow-hidden py-4 border-y border-[rgba(255,255,255,0.05)]">
               <div className="marquee-track">
                 {[
                   "HTML", "CSS", "Tailwind CSS", "React", "JavaScript",
@@ -514,7 +563,7 @@
                 ].map((tech, i) => (
                   <span key={i} className="px-6 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2a2a2a] hover:text-[#444] transition-colors duration-300 whitespace-nowrap">
                     {tech}
-                    <span className="mx-4 text-gold opacity-30">·</span>
+                    <span className="mx-4 text-[#cba052] opacity-30">·</span>
                   </span>
                 ))}
               </div>
@@ -533,6 +582,15 @@
 
       const sendEmail = (e) => {
         e.preventDefault();
+        
+        // Anti-spam honeypot check
+        const formData = new FormData(e.target);
+        if (formData.get('_honeypot')) {
+            setStatus("success");
+            e.target.reset();
+            return;
+        }
+
         setStatus("sending");
 
         // IMPORTANTE: Reemplaza estos valores por los tuyos de EmailJS
@@ -601,7 +659,11 @@
                   <label className="block text-xs font-semibold tracking-wider text-[#888] uppercase mb-2">Mensaje</label>
                   <textarea name="message" required rows="4" className="w-full bg-[#111] border border-[#222] rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold transition-colors duration-300 resize-none" placeholder="¿En qué te puedo ayudar?"></textarea>
                 </div>
-                <button type="submit" disabled={status === "sending"} className="btn-primary mt-2 w-full justify-center disabled:opacity-50" style={{ cursor: "none" }}>
+                
+                {/* Honeypot anti-spam */}
+                <input type="text" name="_honeypot" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+
+                <button type="submit" disabled={status === "sending"} className="btn-primary mt-2 w-full justify-center disabled:opacity-50">
                   {status === "sending" ? "Enviando..." : "Enviar mensaje"}
                 </button>
                 {status === "success" && <p className="text-sm text-green-500 text-center mt-2">¡Mensaje enviado con éxito!</p>}
@@ -665,6 +727,20 @@
                 </li>
               ))}
             </ul>
+            
+            {/* Legal */}
+            <ul className="flex items-center gap-4 mt-4 md:mt-0">
+              <li>
+                <a href="aviso-legal.html" className="text-[11px] font-medium text-[#555] hover:text-[#888] transition-colors duration-300" style={{ cursor: "none" }}>
+                  Aviso Legal
+                </a>
+              </li>
+              <li>
+                <a href="privacidad.html" className="text-[11px] font-medium text-[#555] hover:text-[#888] transition-colors duration-300" style={{ cursor: "none" }}>
+                  Privacidad
+                </a>
+              </li>
+            </ul>
           </div>
         </footer>
       );
@@ -673,6 +749,40 @@
     /* ─────────────────────────────────────────────
        ROOT: App
     ───────────────────────────────────────────── */
+    function CookieBanner() {
+      const [accepted, setAccepted] = useState(true);
+
+      useEffect(() => {
+        if (!localStorage.getItem("cookies_accepted")) {
+          setAccepted(false);
+        }
+      }, []);
+
+      if (accepted) return null;
+
+      const acceptCookies = () => {
+        localStorage.setItem("cookies_accepted", "true");
+        setAccepted(true);
+      };
+
+      return (
+        <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-[#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
+          <p className="text-sm text-[#888] flex-1">
+            Utilizamos cookies propias y de terceros para analizar nuestros servicios y mejorar su experiencia. 
+            Si continúa navegando, consideramos que acepta su uso.
+          </p>
+          <div className="flex gap-4 items-center">
+            <a href="privacidad.html" className="text-sm text-[#555] hover:text-white underline" style={{ cursor: "none" }}>
+              Más información
+            </a>
+            <button onClick={acceptCookies} className="btn-primary py-2 px-6 text-sm" style={{cursor: "none"}}>
+              Aceptar
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     function App() {
       const [isFirstVisit, setIsFirstVisit] = useState(false);
 
@@ -706,6 +816,7 @@
             <ContactSection owner={owner} />
           </main>
           <Footer owner={owner} />
+          <CookieBanner />
         </>
       );
     }
@@ -748,10 +859,19 @@
       });
 
       /* Hover effect on interactive elements */
-      const HOVER_SELECTORS = "a, button, [role='button'], label, input, select, textarea";
+      const HOVER_SELECTORS = "a, button:not([type='submit']), [role='button'], label, select";
+      const NATIVE_CURSORS = "input, textarea, button[type='submit']";
+
       document.addEventListener("mouseover", (e) => {
-        if (e.target.closest(HOVER_SELECTORS)) ring.classList.add("hovering");
-        else ring.classList.remove("hovering");
+        if (e.target.closest(NATIVE_CURSORS)) {
+          dot.style.opacity = "0";
+          ring.style.opacity = "0";
+        } else {
+          dot.style.opacity = "1";
+          ring.style.opacity = "1";
+          if (e.target.closest(HOVER_SELECTORS)) ring.classList.add("hovering");
+          else ring.classList.remove("hovering");
+        }
       });
 
       /* Smooth follow animation */
